@@ -38,23 +38,23 @@
     <!-- TODO: Add login form with username and password fields -->
     <main id="login_main">
       <header id="main_header" class="page-header">
-        <h1 class="page-title">Login</h1>
+        <h1 class="page-title">Register</h1>
       </header>
 
 
       <form
-        target="https://www.fulek.com/data/api/user/login"
-        method="post"
-        id="login_form"
-        class="login-form"
-      >
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
-        <button type="submit">Login</button>
-      </form>
-      <p> don't have an account? <a href="/pages/register.html">Register</a></p>
+      target="https://www.fulek.com/data/api/user/register"
+      method="post"
+      id="register_form"
+      class="register-form"
+    >
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+      <button type="submit">Register</button>
+    </form>
+    <p> already have an account? <a href="/pages/login.html">Login</a></p>
       <!-- TODO: Add error message display area -->
       <div id="error_message" class="error-message"></div>
     </main>
