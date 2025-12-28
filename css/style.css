@@ -1,0 +1,24 @@
+/* TODO: Add global CSS reset and base styles */
+/* TODO: Define color scheme variables */
+/* TODO: Add typography styles */
+/* TODO: Add layout styles for header/navigation */
+#navbar {
+  display: inline-block;
+  text-decoration: none;
+}
+
+#navbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#navbar-list li {
+  display: inline;
+}
+/* TODO: Add layout styles for main content area */
+/* TODO: Add layout styles for footer */
+/* TODO: Add responsive design media queries */
+/* TODO: Add styles for forms */
+/* TODO: Add styles for buttons */
+/* TODO: Add utility classes */
