@@ -1,0 +1,111 @@
+STANDARDS IN INTERNET TECHNOLOGY APPLICATION 
+Project specification 
+Create a website that presents Algebra University College. 
+The website has the following characteristics: 
+• (LEARNING OUTCOME 1 and 2)  
+Contains the always visible menu bar with the following links: 
+o Login/Logout 
+o Home 
+o About us 
+o News 
+o Curriculum 
+o Contact 
+• (LEARNING OUTCOME 2)  
+Use responsive design so that the website displays correctly on desktop and mobile 
+devices. 
+• (LEARNING OUTCOME 1)  
+The parameters of the contact form are sent to the address: 
+https://www.fulek.com/mvc/supit/project-contact-form 
+The contact form contains parameters of the following names: 
+o FullName 
+o Email 
+o Importance 
+o ReceiveNewsletter 
+o Message 
+• (LEARNING OUTCOME 3)  
+Chapter Curriculum can be seen only by users that have been logged in. 
+• Access points: 
+o Login (POST) 
+https://www.fulek.com/data/api/user/login 
+Data required for login are username and password. 
+o Register (POST) 
+https://www.fulek.com/data/api/user/register 
+Data required for registration are username and password. 
+• Secured access points that deliver course data require a JWT token, which is 
+delivered to the client upon successful login: 
+o All courses (GET):  
+https://www.fulek.com/data/api/supit/curriculum-list/en 
+o Individual course (GET) (i.e. course with id 5):  
+https://www.fulek.com/data/api/supit/get-curriculum/5 
+NOTE: following data is available for each course: 
+▪ „id“ – unique number identifier 
+▪ „course“ – course name 
+▪ „ects“ – number of ECTS points for the course 
+▪ „hours" – number of hours for the course 
+▪ „lectures“ – number of lectures for the course 
+▪ „exercises" – number of workshops for the course 
+▪ „type“ – course type: „Obavezni“ (obligatory) or „Izborni“ (elective) 
+▪ "semester" – course semester number 
+• Courses are searched via autocomplete fields 
+• Choosing a course shows the details of the course 
+• Selected courses can be removed from the table, updating the total values 
+Evaluate the justification for the use of JavaScript software frameworks on the request basis 
+and in case it is justified, implement the solution. 
+Design should cover all the displayed elements to achieve the maximum number of points 
+• Attractive design 
+• Background video animations 
+• Display pictures via image gallery (lightbox, fancybox... ) (LEARNING OUTCOME 4) 
+• Chapter animations at the time of display 
+• Use modal dialog boxes (your own or external (jQueryUI, Bootstrap, etc.) ) 
+(LEARNING OUTCOME 4) 
+Based on the requirements, you should evaluate the justification for the use of jQuery, 
+jQueryUI and Bootstrap library elements and in case it is justified, implement the solution. 
+Students can create an identical website as in the presented template or make their own 
+design with the displayed elements implemented. 
+All the materials (text, pictures, video...) needed to create the project are present on 
+Infoeduka. 
+Libraries of type Vue, React, Angular, etc. must not be used to create the project. 
+You can view the recorded template of the finished project here:  
+https://tinyurl.com/SUPIT2022 
+PROJECT SUBMISSION METHOD 
+The student must send the archived project to the e-mail address of the lecturer (full-time 
+students) or assistant (part-time students) in the form of FirstnameLastname.zip 2 days 
+before the exam period (e.g. if the exam period is 15.02. the project task must be sent no 
+later than 12.02 - 23h:59min:59sec) 
+Students who do not submit a completed project task within the set deadline cannot access 
+the defense of the project.  
+Until the term of defence, the project may be refined. 
+ASSESSMENT 
+The maximum grade excellent, can be obtained by students who defend their work on the 
+first exam period (both appointments in February). 
+The maximum grade very good, can be obtained by students who defend their work on the 
+second exam period (July). 
+The maximum grade good, can be obtained by students who defend their work on the 
+autumn exam term (both appointments in September). 
+DISTRIBUTION OF POINTS 
+Learning Outcome 1 
+Minimum outcome — create an html document  structure using generic grouping elements 
+— 15 points.  
+Desired outcome – create an html document structure using semantic html elements using 
+id and class attributes to further clarify the structure - 10 points.  
+Learning Outcome 2 
+Minimum outcome – visually adjust the website interface according to technical 
+specification - 15 points 
+Desired outcome – to distribute page elements through CSS, apply CSS transitions and 
+transformations for the purpose of enriching the overall visual impression, and apply the 
+CSS queries for the responsiveness of the interface at different resolutions – 10 points. 
+Note: if a student resolves responsiveness by using external JavaScript libraries (learning 
+outcome 4 – bootstrap grid) he or she can get maximum points of the desired learning 
+outcome 2. 
+Learning Outcome 3 
+Minimum outcome – retrieve and display data from a server script using JavaScript — 15 
+points. 
+Desired outcome – retrieve and display data according to the default specification using 
+external JavaScript libraries — 10 points. 
+Learning Outcome 4 
+Minimum outcome – define the appearance of the elements of the website by using 
+external JavaScript and CSS libraries – 15 points. 
+Desired outcome – define the appearance, functionality and responsiveness of the website 
+using external JavaScript and CSS libraries – 10 points. 
+Note: if a student solves responsiveness by using his own CSS queries (learning outcome 
+2) he can get maximum points. 
