@@ -1,0 +1,14 @@
+# OS / editor noise
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Local environment
+.env
