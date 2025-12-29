@@ -41,9 +41,8 @@
         <h1 class="page-title">Login</h1>
       </header>
 
-
       <form
-        target="https://www.fulek.com/data/api/user/login"
+        action="https://www.fulek.com/data/api/user/login"
         method="post"
         id="login_form"
         class="login-form"
@@ -54,10 +53,12 @@
         <input type="password" id="password" name="password" />
         <button type="submit">Login</button>
       </form>
-      <p> don't have an account? <a href="/pages/register.html">Register</a></p>
+      <p>don't have an account? <a href="/pages/register.html">Register</a></p>
       <!-- TODO: Add error message display area -->
       <div id="error_message" class="error-message"></div>
     </main>
-    <!-- TODO: Add footer -->
+    <footer id="main_footer" class="page-footer">
+      <p class="footer-text">&copy; Algebra University College</p>
+    </footer>
   </body>
 </html>
