@@ -5,6 +5,9 @@
 #navbar {
   display: inline-block;
   text-decoration: none;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 #navbar-list {
@@ -14,6 +17,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  
 }
 
 #navbar-list li {
@@ -24,7 +32,7 @@
   margin-left: auto;
 }
 
-#logout {
+#nav_logout {
   display: inline-block;
   text-decoration: none;
   color: #000;

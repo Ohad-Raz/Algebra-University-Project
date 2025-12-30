@@ -28,12 +28,8 @@
         <li>
           <a href="/pages/contact.html">Contact</a>
         </li>
-        <li>
-          <a href="/pages/login.html">Login</a>
-        </li>
-        <li>
-          <a href="/pages/register.html" id="logout">logout</a>
-        </li>
+        <li><a id="nav_login" href="/pages/login.html">Login</a></li>
+        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
       </ul>
     </nav>
     <!-- TODO: Add contact form with name, email, message fields -->
@@ -49,49 +45,38 @@
         class="contact-form"
       >
         <div class="form-group">
-          <label for="FullName" class="form-label">FullName:</label>
-          <input type="text" id="FullName" name="FullName" class="form-input" />
+          <label for="fullName" class="form-label">FullName:</label>
+          <input type="text" id="fullName" name="fullName" class="form-input" />
         </div>
 
         <div class="form-group">
-          <label for="Email" class="form-label">Email:</label>
-          <input type="email" id="Email" name="Email" class="form-input" />
-        </div>
-
-        <div class="form-group">
-          <label for="Importance" class="form-label">Password:</label>
-          <input
-            type="password"
-            id="Importance"
-            name="Importance"
-            class="form-input"
-            required
-          />
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" id="email" name="email" class="form-input" />
         </div>
 
         <div class="form-group">
           <label for="ReceiveNewsletter" class="form-label checkbox-label">
             <input
               type="checkbox"
-              id="ReceiveNewsletter"
-              name="ReceiveNewsletter"
+              id="receiveNewsletter"
+              name="receiveNewsletter"
               class="form-checkbox"
             />
-            ReceiveNewsletter:
+            receiveNewsletter:
           </label>
         </div>
 
         <div class="form-group">
-          <label for="Message" class="form-label">Message:</label>
+          <label for="message" class="form-label">Message:</label>
           <textarea
-            id="Message"
-            name="Message"
+            id="message"
+            name="message"
             class="form-textarea"
           ></textarea>
         </div>
 
         <div class="form-group">
-          <button type="submit" class="submit-button">Login</button>
+          <button type="submit" class="submit-button">Submit Form</button>
         </div>
       </form>
     </main>
