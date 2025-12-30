@@ -18,11 +18,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   console.log(c);
   const courseContainer = document.createElement("div");
   courseContainer.innerHTML = `
-        <h3>${c.course}</h3>
-      <p>ECTS: ${c.ects}, Hours: ${c.hours}</p>
-      <p>Lectures: ${c.lectures}, Exercises: ${c.exercises}</p>
-      <p>Semester: ${c.semester}, Type: ${c.type}</p>
-      <a href="/pages/course.html?id=${c.id}">View Course</a>
+        <h3>${c.kolegij}</h3>
+      <p>ECTS: ${c.ects}, Hours: ${c.sati}</p>
+      <p>Lectures: ${c.predavanja}, Exercises: ${c.vjezbe}</p>
+      <p>Semester: ${c.semestar}, Type: ${c.tip}</p>
   `;
   document.getElementById("course_container").appendChild(courseContainer);
 });
