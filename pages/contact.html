@@ -31,59 +31,70 @@
         <li>
           <a href="/pages/login.html">Login</a>
         </li>
+        <li>
+          <a href="/pages/register.html" id="logout">logout</a>
+        </li>
       </ul>
     </nav>
     <!-- TODO: Add contact form with name, email, message fields -->
     <!-- TODO: Add contact information section (address, phone, email) -->
+    <main id="contact_main">
+      <header id="main_header" class="page-header">
+        <h1 class="page-title">Contact</h1>
+      </header>
+      <form
+        action="https://www.fulek.com/mvc/supit/project-contact-form"
+        method="post"
+        id="contact_form"
+        class="contact-form"
+      >
+        <div class="form-group">
+          <label for="FullName" class="form-label">FullName:</label>
+          <input type="text" id="FullName" name="FullName" class="form-input" />
+        </div>
 
-    <form
-      target="https://www.fulek.com/mvc/supit/project-contact-form"
-      method="post"
-      id="contact_form"
-      class="contact-form"
-    >
-      <div class="form-group">
-        <label for="FullName" class="form-label">FullName:</label>
-        <input type="text" id="FullName" name="FullName" class="form-input" />
-      </div>
+        <div class="form-group">
+          <label for="Email" class="form-label">Email:</label>
+          <input type="email" id="Email" name="Email" class="form-input" />
+        </div>
 
-      <div class="form-group">
-        <label for="Email" class="form-label">Email:</label>
-        <input type="email" id="Email" name="Email" class="form-input" />
-      </div>
-
-      <div class="form-group">
-        <label for="Importance" class="form-label">Password:</label>
-        <input
-          type="password"
-          id="Importance"
-          name="Importance"
-          class="form-input"
-          required
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="ReceiveNewsletter" class="form-label checkbox-label">
+        <div class="form-group">
+          <label for="Importance" class="form-label">Password:</label>
           <input
-            type="checkbox"
-            id="ReceiveNewsletter"
-            name="ReceiveNewsletter"
-            class="form-checkbox"
+            type="password"
+            id="Importance"
+            name="Importance"
+            class="form-input"
+            required
           />
-          ReceiveNewsletter:
-        </label>
-      </div>
+        </div>
 
-      <div class="form-group">
-        <label for="Message" class="form-label">Message:</label>
-        <textarea id="Message" name="Message" class="form-textarea"></textarea>
-      </div>
+        <div class="form-group">
+          <label for="ReceiveNewsletter" class="form-label checkbox-label">
+            <input
+              type="checkbox"
+              id="ReceiveNewsletter"
+              name="ReceiveNewsletter"
+              class="form-checkbox"
+            />
+            ReceiveNewsletter:
+          </label>
+        </div>
 
-      <div class="form-group">
-        <button type="submit" class="submit-button">Login</button>
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="Message" class="form-label">Message:</label>
+          <textarea
+            id="Message"
+            name="Message"
+            class="form-textarea"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-button">Login</button>
+        </div>
+      </form>
+    </main>
     <!-- TODO: Add map or location information -->
     <footer id="main_footer" class="page-footer">
       <p class="footer-text">&copy; Algebra University College</p>
