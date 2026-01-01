@@ -22,6 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "/pages/login.html";
     });
   }
+  const navToggle = document.getElementById("nav_toggle");
+  const navbar = document.getElementById("navbar");
+
+  navToggle.addEventListener("click", () => {
+    navbar.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", navbar.classList.contains("open"));
+  });
 });
 
 // TODO: Add header/footer rendering logic
