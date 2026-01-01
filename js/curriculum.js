@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // 2. Initial Render
     renderCourses(allCourses);
+    populateSuggestions(allCourses);
 
     // 3. Setup Search Listener
     const searchInput = document.getElementById("course_search");
@@ -127,4 +128,14 @@ function renderTable() {
     // Update Totals
     totalEctsEl.innerText = sumEcts;
     totalHoursEl.innerText = sumHours;
+}
+function populateSuggestions(courses) {
+    const datalist = document.getElementById("course_options");
+    datalist.innerHTML = ""; // Clear
+    
+    courses.forEach(c => {
+        const option = document.createElement("option");
+        option.value = c.course; // This is what the user sees in the dropdown
+        datalist.appendChild(option);
+    });
 }

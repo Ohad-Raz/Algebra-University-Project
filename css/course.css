@@ -96,3 +96,10 @@
     border-radius: 3px;
 }
 .delete-btn:hover { background-color: #cc0000; }
+
+/* media queries */
+@media (max-width: 768px) {
+    .curriculum-layout {
+        flex-direction: column-reverse; /* Stack them vertically */
+    }
+}

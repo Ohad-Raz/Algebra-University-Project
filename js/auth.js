@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json();
 
       if (data.isSuccess) {
-        window.location.href = "/pages/login.html";
+        window.location.href = "login.html";
       } else {
         const msg = document.getElementById("register_message");
         if (msg) msg.textContent = data.errorMessages?.[0] ?? "Registration failed";
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //show message if login failed
       if (data.isSuccess) {
         localStorage.setItem("token", data.data.token);
-        window.location.href = "/pages/curriculum.html";
+        window.location.href = "curriculum.html";
       } else {
         const msg = document.getElementById("login_message");
         if (msg) msg.textContent = data.errorMessages?.[0] ?? "Login failed";
