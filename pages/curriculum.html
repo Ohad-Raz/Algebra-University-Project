@@ -36,12 +36,40 @@
       </ul>
     </nav>
     <!-- TODO: Add curriculum programs container -->
-    <main>
-      <h1>Curriculum</h1>
-      <div id="courses_container"></div>
+    <main class="curriculum-layout">
+    <!-- LEFT COLUMN -->
+    <div class="curriculum-search-section">
+        <h1>Curriculum</h1>
+        <input type="text" id="course_search" placeholder="Search for courses..." class="search-input">
+        <div id="courses_container"></div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="curriculum-selected-section">
+        <h2>My Curriculum</h2>
+        <table id="selected_courses_table">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>ECTS</th>
+                    <th>Hours</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="selected_body"></tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td id="total_ects">0</td>
+                    <td id="total_hours">0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
     </main>
 
     <!-- TODO: Add program selection interface -->
+
     <!-- TODO: Add course listing area -->
     <footer id="main_footer" class="page-footer">
       <p class="footer-text">&copy; Algebra University College</p>

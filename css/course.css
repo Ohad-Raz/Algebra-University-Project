@@ -20,3 +20,79 @@
   background-color: #f0f0f0;
   cursor: pointer;
 }
+/* --- Split Layout --- */
+.curriculum-layout {
+    display: flex;
+    gap: 30px; /* Space between columns */
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+/* Left Column: Search */
+.curriculum-search-section {
+    flex: 1
+; /* Takes available space */
+}
+
+/* Right Column: Table */
+.curriculum-selected-section {
+    flex: 1; /* Takes available space */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    position: sticky; /* Keeps it visible while scrolling */
+    top: 20px;
+}
+
+/* Search Input */
+.search-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.curriculum_message{
+    color: red;
+}
+/* --- Table Styling --- */
+#selected_courses_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+}
+
+#selected_courses_table th, 
+#selected_courses_table td {
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: left;
+    font-size: 14px;
+}
+
+#selected_courses_table th {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* Make the total row stand out */
+#selected_courses_table tfoot td {
+    font-weight: bold;
+    background-color: #e8e8e8;
+}
+
+/* Red delete button */
+.delete-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.delete-btn:hover { background-color: #cc0000; }
