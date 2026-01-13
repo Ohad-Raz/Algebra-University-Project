@@ -11,7 +11,14 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="../js/common.js"></script>
   </head>
-  <body>
+  <body class="landing-page">
+    <!-- Background Video (LO4) -->
+    <video autoplay muted loop id="bg-video">
+      <source src="../video/typingOnlaptop.mp4" type="video/mp4" />
+      <!-- Fallback message for older browsers that don't support HTML5 video -->
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
       <button id="nav_toggle" aria-expanded="false">☰</button>
@@ -36,7 +43,7 @@
       </ul>
     </nav>
     <!-- TODO: Add login form with username and password fields -->
-    <main id="register_main">
+    <main id="register_main" class="glass-panel">
       <header id="main_header" class="page-header">
         <h1 class="page-title">Register</h1>
       </header>

@@ -9,7 +9,14 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="js/common.js"></script>
   </head>
-  <body>
+  <body class="landing-page">
+    <!-- Background Video (LO4) -->
+    <video autoplay muted loop id="bg-video">
+      <source src="video/typingOnlaptop.mp4" type="video/mp4" />
+      <!-- Fallback message for older browsers that don't support HTML5 video -->
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
       <button id="nav_toggle" aria-expanded="false">☰</button>
@@ -34,15 +41,17 @@
       </ul>
     </nav>
 
-    <header id="main_header" class="page-header">
-      <h1 class="page-title">Welcome to Algebra University College</h1>
+
+    <main id="home_main">
+          <header id="main_header">
+      <div class="page-header">
+        <h1 class="page-title">Welcome to Algebra University College</h1>
+      </div>
       <p class="intro-text">
         Practical education focused on modern technologies, innovation, and
         skills required by today's job market.
       </p>
     </header>
-
-    <main id="home_main">
       <section id="study_purpose" class="content-section">
         <h2 class="section-title">Study With Purpose</h2>
         <p class="section-text">

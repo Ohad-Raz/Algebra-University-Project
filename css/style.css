@@ -1,99 +1,243 @@
-/* TODO: Add global CSS reset and base styles */
-/* TODO: Define color scheme variables */
-/* TODO: Add typography styles */
-/* TODO: Add layout styles for header/navigation */
+/* --- Base Typography & Reset --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary-blue: #002d72; /* Algebra's brand blue */
+  --primary-blue: #002d72;
+  --primary-blue-hover: #0040a1;
   --bg-light: #f8f9fa;
+  --text-dark: #333;
+  --text-light: #ffffff;
   --radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-light);
+  color: var(--text-dark);
   line-height: 1.6;
 }
+
 main {
   max-width: 1100px;
-  margin: 0 auto; /* Centers the whole page content */
-  padding: 40px 20px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  min-height: 80vh; /* Ensures footer stays down */
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Utility Classes for Contrast --- */
+.landing-page { color: var(--text-light); }
+.landing-page #navbar { background: rgba(255, 255, 255, 0.95); }
+.landing-page a:not(#navbar a) { color: #80bfff; } /* Lighter blue for links on dark background */
+
+/* --- Page Headers --- */
+.page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+.landing-page .page-title { color: var(--text-light); }
+
+.intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* --- Background Video (LO4) --- */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65); /* Made slightly darker for better contrast */
+  z-index: -1;
+}
+
+/* --- Navigation --- */
 #navbar {
-  display: inline-block;
-  text-decoration: none;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow);
   padding: 10px 0;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Ensures navbar/menu stays on top of content */
+  z-index: 1000;
 }
 
 #navbar-list {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 25px; /* Adds nice space between links */
+  gap: 25px;
   padding: 0 20px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-#navbar-list li {
-  display: inline;
-}
-
-/* #navbar-list li:last-child {
-  margin-left: auto;
-} */
- #navbar-list li:has(#nav_login), 
+#navbar-list li:has(#nav_login), 
 #navbar-list li:has(#nav_logout) {
   margin-left: auto;
 }
 
-/* Hide the entire list item if the link inside is hidden so this way both login and logout on the same place*/
 #navbar-list li:has(a[style*="display: none"]) {
   display: none;
 }
+
 #navbar-list a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.2s ease;
 }
+
 #navbar-list a:hover {
-  color: var(--primary-blue); /* Uses the variable you just created! */
+  color: var(--primary-blue);
 }
+
 #nav_login, #nav_logout {
-  padding: 8px 20px;
-  border-radius: var(--radius);
-  border: 1.5px solid var(--primary-blue);
+  padding: 8px 24px;
+  border-radius: 4px; /* More professional sharp edges */
+  border: 2px solid var(--primary-blue);
   background: transparent;
   color: var(--primary-blue);
   font-weight: 600;
-  cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none;
 }
+
 #nav_login:hover, #nav_logout:hover {
-  background-color: var(--primary-blue);
+  background: var(--primary-blue);
   color: white;
 }
 
 #nav_toggle {
   display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 20px;
 }
-@media (max-width: 768px)
- {
-  #nav_toggle {
-    display: block;
-  }
+
+/* --- Footer --- */
+.page-footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #eee;
+  margin-top: 60px;
+}
+.landing-page .page-footer { background: rgba(0,0,0,0.5); border-top: 1px solid #444; }
+
+/* --- Form Styling --- */
+.contact-form, .login-form, .register-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-blue-hover);
+}
+
+/* Ensure forms on video background look correct */
+.landing-page .form-label { color: var(--text-light); }
+.landing-page .form-input { 
+  background: rgba(255, 255, 255, 0.9); 
+  border: none; 
+}
+
+/* --- Video Content Sections --- */
+.video-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#small-video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Responsive Menu --- */
+@media (max-width: 768px) {
+  #nav_toggle { display: block; }
+  
   #navbar-list {
     display: none;
     position: absolute;
@@ -101,30 +245,12 @@ align-items: center;
     left: 0;
     right: 0;
     background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    padding: 10px 20px;
-    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: var(--shadow);
   }
-  #nav_login, #nav_logout {
-position: relative;
+
+  #navbar.open #navbar-list { display: flex; }
+  #navbar-list li:has(#nav_login), 
+  #navbar-list li:has(#nav_logout) { margin-left: 0; margin-top: 10px; }
 }
-#navbar.open #navbar-list { display: flex; flex-direction: column;
-transition: all 0.3s ease;
- }
-#navbar.open #nav_toggle { transform: rotate(180deg);
-transition: transform 0.3s ;  
- }
-#navbar.close #nav_toggle { transform: rotate(0deg);
-transition: transform 0.3s ;
- }
-
-
-
-}
-
-/* TODO: Add layout styles for main content area */
-/* TODO: Add layout styles for footer */
-/* TODO: Add responsive design media queries */
-/* TODO: Add styles for forms */
-/* TODO: Add styles for buttons */
-/* TODO: Add utility classes */

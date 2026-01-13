@@ -57,5 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // TODO: Add login submission handler
 // TODO: Add session management functions
 // TODO: Add logout functionality
-// TODO: Add authentication check functions
-// TODO: Add redirect logic for protected pages
+// Redirect logic for protected pages
+if (window.location.pathname.includes("curriculum.html")) {
+  if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+  }
+}
