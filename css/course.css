@@ -16,35 +16,30 @@
   color: #000;
 }
 
-.course-item :hover {
+.course-item:hover {
   background-color: #f0f0f0;
   cursor: pointer;
 }
 /* --- Split Layout --- */
 .curriculum-layout {
     display: flex;
-    gap: 30px; /* Space between columns */
-    align-items: flex-start;
+    flex-wrap: wrap; /* Allows wrapping on medium screens */
+    gap: 20px;
     padding: 20px 0;
-}
-
-/* Left Column: Search */
-.curriculum-search-section {
-    flex: 1
-; /* Takes available space */
 }
 
 /* Right Column: Table */
 .curriculum-selected-section {
-    flex: 1; /* Takes available space */
+    flex: 1;
+    min-width: 300px;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #ddd;
-    position: sticky; /* Keeps it visible while scrolling */
-    top: 10px; /* Adjusted to fit better under the sticky navbar */
-    max-height: 52vh; /* Prevents the box from going off-screen */
-    overflow-y: auto; /* Adds scrollbar if list is too long */
+    position: sticky;
+    top: 80px; /* Space for navbar */
+    max-height: 70vh; /* Better vertical space on tablets */
+    overflow-y: auto;
 }
 
 /* Search Input */
@@ -99,9 +94,28 @@
 }
 .delete-btn:hover { background-color: #cc0000; }
 
+/* Blue add button */
+.add-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+.add-btn:hover { background-color: var(--primary-blue-hover); }
+
 /* media queries */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .curriculum-layout {
-        flex-direction: column-reverse; /* Stack them vertically */
+        flex-direction: column-reverse; /* Only stack on small phones */
+        
     }
+    .curriculum-selected-section {
+    max-height: 45vh; /* Better vertical space on tablets */
+    padding: 10px;
+    top:0px;
+}
 }

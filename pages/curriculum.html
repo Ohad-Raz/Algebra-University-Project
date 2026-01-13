@@ -12,7 +12,7 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="../js/common.js"></script>
   </head>
-  <body>
+  <body class="image-bg-layout">
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
       <button id="nav_toggle" aria-expanded="false">☰</button>
@@ -32,12 +32,17 @@
         <li>
           <a href="contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="login.html">Login</a></li>
-        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
       </ul>
     </nav>
     <!-- TODO: Add curriculum programs container -->
-    <main class="curriculum-layout">
+    <main>
+      <div class="glass-panel curriculum-layout">
     <!-- LEFT COLUMN -->
     <div class="curriculum-search-section">
       <header class="page-header">
@@ -70,6 +75,8 @@
                 </tr>
             </tfoot>
         </table>
+    </div>
+      </div>
     </main>
 
     <!-- TODO: Add program selection interface -->

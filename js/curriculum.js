@@ -6,7 +6,7 @@ let allCourses = [];
 document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("token");
     if (!token) {
-        window.location.href = "/pages/login.html";
+        window.location.href = "login.html";
         return;
     }
 
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Token expired or invalid
                 localStorage.removeItem("token");
                 localStorage.removeItem("username");
-                window.location.href = "/pages/login.html";
+                window.location.href = "login.html";
                 return;
             }
             throw new Error("Failed to fetch curriculum");
@@ -77,9 +77,15 @@ function renderCourses(courses) {
             <p>ECTS: ${c.ects}, Hours: ${c.hours}</p>
             <p>Semester: ${c.semester}, Type: ${c.type}</p>
             <button class="add-btn" data-id="${c.id}">Add Course</button>
-            <a href="/pages/course.html?id=${c.id}" style="display:block; margin-top:5px;">View Details</a>
             <span class="curriculum_message"></span>
         `;
+
+        // Make the whole card clickable for details
+        item.addEventListener("click", (e) => {
+            // If the user clicked the "Add" button, don't navigate!
+            if (e.target.classList.contains("add-btn")) return;
+            window.location.href = `course.html?id=${c.id}`;
+        });
         
         // Add click listener for the "Add" button
         const addBtn = item.querySelector(".add-btn");

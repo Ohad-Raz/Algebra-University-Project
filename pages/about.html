@@ -12,7 +12,7 @@
     <!-- <script src="../js/gallery.js" defer></script> -->
     <script src="../js/gallery.js" defer></script>
   </head>
-  <body>
+  <body class="image-bg-layout">
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
       <button id="nav_toggle" aria-expanded="false">☰</button>
@@ -32,11 +32,16 @@
         <li>
           <a href="contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="login.html">Login</a></li>
-        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
       </ul>
     </nav>
     <main id="about_main">
+      <div class="glass-panel">
       <header class="page-header">
         <h1 class="page-title">About Algebra University College</h1>
       </header>
@@ -105,153 +110,106 @@
           years ago and with you we continue the path towards new successes.
         </p>
 
-        <article class="history-item">
-          <h3 class="history-title">Algebra LAB</h3>
-          <p>
-            We opened Algebra LAB, a unique innovation center that helps
-            companies, public services and start-up projects develop innovative
-            business solutions that will boost the competitiveness of the
-            economy. With an investment of three million kuna, we are the only
-            ones in Croatia to unite three key elements – a department of
-            applied research and development in the digital field, a start-up
-            incubator with coworking space and an innovative educational
-            platform intended for spreading the most advanced technological and
-            business knowledge. Algebra LAB is a new place for innovation,
-            creation, ideas and dreams about the future.
-          </p>
-        </article>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Algebra LAB</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                We opened Algebra LAB, a unique innovation center that helps companies, public services and start-up projects develop innovative business solutions that will boost the competitiveness of the economy. With an investment of three million kuna, we are the only ones in Croatia to unite three key elements – a department of applied research and development in the digital field, a start-up incubator with coworking space and an innovative educational platform intended for spreading the most advanced technological and business knowledge. Algebra LAB is a new place for innovation, creation, ideas and dreams about the future.
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">
-            Algebra d.o.o. founded – company for adult education
-          </h3>
-          <p>
-            Algebra d.o.o. was founded in April 1998 as a company for adult
-            education. In June 1998. it records the first participants of
-            computer application and computer applications seminars. In
-            September 1998. it records the first significant increase in the
-            number of service users, so that through multi-digit growth in 1999
-            and 2000. it established itself in the adult education market, in
-            the field of end-user application of information technologies (IT).
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Algebra d.o.o. founded – company for adult education</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Algebra d.o.o. was founded in April 1998 as a company for adult education. In June 1998. it records the first participants of computer application and computer applications seminars. In September 1998. it records the first significant increase in the number of service users, so that through multi-digit growth in 1999 and 2000. it established itself in the adult education market, in the field of end-user application of information technologies (IT).
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">
-            Microsoft Authorized Training Center (ATC)
-          </h3>
-          <p>
-            After much effort and hard work we convinced in 2000 the local
-            office Microsoft Croatia that we meet the set conditions so we could
-            become an authorized training center for their technologies. This,
-            the first in a series, authorization distanced us from other
-            education providers from that time and secured us access to official
-            teaching materials and more favorable software licensing conditions.
-            We subsequently significantly improved this status to reach the
-            "Gold" epithet.
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Microsoft Authorized Training Center (ATC)</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                After much effort and hard work we convinced in 2000 the local office Microsoft Croatia that we meet the set conditions so we could become an authorized training center for their technologies. This, the first in a series, authorization distanced us from other education providers from that time and secured us access to official teaching materials and more favorable software licensing conditions. We subsequently significantly improved this status to reach the "Gold" epithet.
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">
-            Adobe, Macromedia and Autodesk training center
-          </h3>
-          <p>
-            Encouraged by the success of obtaining Microsoft accreditation, in
-            2001 we put all our strength into meeting the conditions for
-            establishing an official training center for other manufacturers and
-            in the same year we became: Macromedia Authorized Training Center
-            Adobe Authorized Training Provider Autodesk Authorized Training
-            Center and IBM Business Partner.
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Adobe, Macromedia and Autodesk training center</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Encouraged by the success of obtaining Microsoft accreditation, in 2001 we put all our strength into meeting the conditions for establishing an official training center for other manufacturers and in the same year we became: Macromedia Authorized Training Center Adobe Authorized Training Provider Autodesk Authorized Training Center and IBM Business Partner.
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">Algebra Learning Center founded</h3>
-          <p>
-            At the beginning of 2002, Algebra d.o.o. founded the Algebra
-            Learning Center, and in the same year moved to a significantly
-            larger and higher quality space at Maksimirska 58a, Zagreb where a
-            total of 6 classrooms and about 800 m2 of furnished educational
-            space are made available to participants. According to estimates by
-            Microsoft Croatia, Algebra's share in the Croatian market of
-            educational services for Microsoft tools grew that year to 30%–35%.
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Algebra Learning Center founded</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                At the beginning of 2002, Algebra d.o.o. founded the Algebra Learning Center, and in the same year moved to a significantly larger and higher quality space at Maksimirska 58a, Zagreb where a total of 6 classrooms and about 800 m2 of furnished educational space are made available to participants. According to estimates by Microsoft Croatia, Algebra's share in the Croatian market of educational services for Microsoft tools grew that year to 30%–35%.
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">
-            Algebra Learning Center became the leading education provider in IT
-          </h3>
-          <p>
-            By introducing a series of new adult education programs accredited
-            by the Ministry responsible for education over several previous
-            years, Algebra in 2003 in just one year jumped from 5th to 1st place
-            among IT education providers (measured according to revenue and
-            number of participants), achieving growth in one year of business of
-            91.8%. We still hold the position of the leading educational system
-            in adult education today.
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Algebra University receives accreditation</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                After more than 2 years of intensive preparation, at the end of 2007, the College of Applied Computing was founded, which received a permit from the Ministry of Science, Education and Sports in June 2008. This event set new development guidelines for the Algebra education group and in a certain way successfully rounded off efforts to launch a higher education program that were initiated back in 2002 through the implementation of the IBM ACE education program. The implementation of the teaching program begins in the premises of FER and in the Algebra building on Maksimirska Street.
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">
-            Algebra University receives accreditation
-          </h3>
-          <p>
-            After more than 2 years of intensive preparation, at the end of
-            2007, the College of Applied Computing was founded, which received a
-            permit from the Ministry of Science, Education and Sports in June
-            2008. This event set new development guidelines for the Algebra
-            education group and in a certain way successfully rounded off
-            efforts to launch a higher education program that were initiated
-            back in 2002 through the implementation of the IBM ACE education
-            program. The implementation of the teaching program begins in the
-            premises of FER and in the Algebra building on Maksimirska Street.
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">Recent Successes & Growth</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                We further expanded our capacities by adding new classrooms at the address in Ilica, and we successfully passed the quality check of program implementation in the organization of FER and extended the certificate "Approved by FER" until 2016. The entire Algebra group was rated as the leading ECDL center in Croatia, and we were also highlighted as an example in the implementation of EU projects which was crowned by the visit of EU Commissioner Mr. Andor. Algebra University has had a new logo and visual identity since this year.
+              </p>
+              <p>
+                After two years of intensive preparation and the conducted initial accreditation procedure, Algebra University received in January 2015. permits for a new undergraduate and graduate Study of Digital Marketing, the first in this part of Europe. We know there is still much to do ahead of us. We know that we can only sometimes turn around and look back to remember the beautiful moments that marked our almost 20 years of work. Thank you for believing in us all these years and helping us grow.
+              </p>
+            </div>
+          </div>
 
-        <article class="history-item">
-          <h3 class="history-title">
-            Excellent results in European projects, quality still in focus
-          </h3>
-          <p>
-            We further expanded our capacities by adding new classrooms at the
-            address in Ilica, and we successfully passed the quality check of
-            program implementation in the organization of FER and extended the
-            certificate "Approved by FER" until 2016. The entire Algebra group
-            was rated as the leading ECDL center in Croatia, and we were also
-            highlighted as an example in the implementation of EU projects which
-            was crowned by the visit of EU Commissioner Mr. Andor. Algebra
-            University has had a new logo and visual identity since this year.
-          </p>
-          <p>
-            After two years of intensive preparation and the conducted initial
-            accreditation procedure, Algebra University received in January
-            2015. permits for a new undergraduate and graduate Study of Digital
-            Marketing, the first in this part of Europe. We know there is still
-            much to do ahead of us. We know that we can only sometimes turn
-            around and look back to remember the beautiful moments that marked
-            our almost 20 years of work. Thank you for believing in us all these
-            years and helping us grow.
-          </p>
-        </article>
-
-        <article class="history-item">
-          <h3 class="history-title">
-            We launch MBA e-leadership study – doing business in digital economy
-          </h3>
-          <p>
-            We integrated into our system one of the first Croatian business
-            schools: International Graduate Business School (IgBS Zagreb) and we
-            are introducing into our program a graduate MBA study of eLeadership
-            (eLeadership) in English. This study is largely taught by lecturers
-            from the University of Indiana, Kelley School of Business, one of
-            the five leading American business schools according to the
-            prestigious business magazine Bloomberg, while some specific topics
-            are reserved for Croatian and European professors.
-          </p>
-        </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span class="accordion-title">MBA e-leadership study – doing business in digital economy</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>
+                We integrated into our system one of the first Croatian business schools: International Graduate Business School (IgBS Zagreb) and we are introducing into our program a graduate MBA study of eLeadership (eLeadership) in English. This study is largely taught by lecturers from the University of Indiana, Kelley School of Business, one of the five leading American business schools according to the prestigious business magazine Bloomberg, while some specific topics are reserved for Croatian and European professors.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="about_group" class="content-section">
@@ -354,14 +312,16 @@
           </video>
         </div>
       </section>
-      <!-- Lightbox Modal Container -->
-      <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
       </div>
     </main>
     <footer id="main_footer" class="page-footer">
       <p class="footer-text">&copy; Algebra University College</p>
     </footer>
+
+    <!-- Lightbox Modal Container (Moved outside for proper centering) -->
+    <div id="lightbox" class="lightbox">
+      <span class="close-lightbox">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+    </div>
   </body>
 </html>

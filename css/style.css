@@ -34,11 +34,57 @@ main {
 }
 
 /* --- Utility Classes for Contrast --- */
-.landing-page { color: var(--text-light); }
-.landing-page #navbar { background: rgba(255, 255, 255, 0.95); }
-.landing-page a:not(#navbar a) { color: #80bfff; } /* Lighter blue for links on dark background */
+.video-bg-layout { color: var(--text-light); }
+.video-bg-layout #navbar { background: rgba(255, 255, 255, 0.95); }
+.video-bg-layout a:not(#navbar a) { color: #80bfff; } /* Lighter blue for links on dark background */
+
+.image-bg-layout {
+    background: url('../img/abstract_bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+.image-bg-layout::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* Subtle light overlay for legibility */
+    z-index: -1;
+}
+
+/* --- Content Cards (Glassmorphism) --- */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+    width: 100%; /* Ensure panels fill their container */
+}
+
+/* --- Video Page Transparency Overrides --- */
+.video-bg-layout .glass-panel {
+    background: rgba(255, 255, 255, 0.05); /* Increased transparency as requested */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth on semi-visible background */
+}
 
 /* --- Page Headers --- */
+h1, h2, h3 {
+  transition: all 0.3s ease;
+  color: var(--primary-blue);
+  cursor: default;
+}
+
+h1:hover, h2:hover, h3:hover {
+  /* letter-spacing: 0.1px; */
+  filter: brightness(1.7);
+}
+
 .page-header {
   margin-bottom: 40px;
   text-align: center;
@@ -46,9 +92,22 @@ main {
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--primary-blue);
+  /* color managed by h1/h2/h3 rules */
 }
-.landing-page .page-title { color: var(--text-light); }
+
+/* Light headers for dark backgrounds */
+.video-bg-layout h1, 
+.video-bg-layout h2, 
+.video-bg-layout h3 { 
+  color: #e0f0ff; /* Soft "academic" blue-white */
+}
+
+.video-bg-layout h1:hover, 
+.video-bg-layout h2:hover, 
+.video-bg-layout h3:hover {
+  color: var(--text-light);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
 
 .intro-text {
   text-align: center;
@@ -101,13 +160,64 @@ main {
   margin: 0 auto;
 }
 
-#navbar-list li:has(#nav_login), 
-#navbar-list li:has(#nav_logout) {
+.nav-right {
   margin-left: auto;
 }
 
-#navbar-list li:has(a[style*="display: none"]) {
-  display: none;
+.nav-item-login, .nav-item-logout {
+  display: none; /* Hidden by default to prevent flashing wrong state on load */
+}
+
+/* --- Accordion Styles --- */
+.accordion-item {
+    border-bottom: 1px solid rgba(0, 74, 153, 0.1);
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+    border-radius: 8px;
+}
+
+.accordion-header:hover {
+    background: rgba(0, 74, 153, 0.05);
+}
+
+.accordion-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    color: var(--primary-blue);
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s;
+    padding: 0 20px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px; /* Large enough to fit content */
+    padding: 15px 20px;
 }
 
 #navbar-list a {
@@ -152,7 +262,7 @@ main {
   background: #eee;
   margin-top: 60px;
 }
-.landing-page .page-footer { background: rgba(0,0,0,0.5); border-top: 1px solid #444; }
+.video-bg-layout .page-footer { background: rgba(0,0,0,0.5); border-top: 1px solid #444; }
 
 /* --- Form Styling --- */
 .contact-form, .login-form, .register-form {
@@ -215,8 +325,8 @@ main {
 }
 
 /* Ensure forms on video background look correct */
-.landing-page .form-label { color: var(--text-light); }
-.landing-page .form-input { 
+.video-bg-layout .form-label { color: var(--text-light); }
+.video-bg-layout .form-input { 
   background: rgba(255, 255, 255, 0.9); 
   border: none; 
 }
@@ -251,6 +361,5 @@ main {
   }
 
   #navbar.open #navbar-list { display: flex; }
-  #navbar-list li:has(#nav_login), 
-  #navbar-list li:has(#nav_logout) { margin-left: 0; margin-top: 10px; }
+  .nav-right { margin-left: 0; margin-top: 10px; }
 }

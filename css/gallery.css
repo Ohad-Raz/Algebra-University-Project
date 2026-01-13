@@ -1,19 +1,13 @@
 /* --- Gallery Grid Layout --- */
 .gallery-grid {
-  display: grid;
-  /* 
-     repeat(auto-fit, minmax(200px, 1fr)):
-     - auto-fit: Fills the row with as many columns as fit.
-     - minmax(200px, 1fr): Each column is at least 200px, 
-       but stretches to fill extra space (1fr).
-  */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
 }
 
 .gallery-item {
-  width: 100%;
+  flex: 1 1 250px; /* Each item is at least 250px and grows to fill space */
   height: 200px;
   /* object-fit: cover ensures images aren't squished but cropped to fit */
   object-fit: cover; 

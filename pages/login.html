@@ -11,7 +11,7 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="../js/common.js"></script>
   </head>
-  <body class="landing-page">
+  <body class="video-bg-layout">
     <!-- Background Video (LO4) -->
     <video autoplay muted loop id="bg-video">
       <source src="../video/typingOnlaptop.mp4" type="video/mp4" />
@@ -39,12 +39,17 @@
         <li>
           <a href="contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="login.html">Login</a></li>
-        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
       </ul>
     </nav>
     <!-- TODO: Add login form with username and password fields -->
-    <main id="login_main" class="glass-panel">
+    <main id="login_main">
+      <div class="glass-panel">
       <header id="main_header" class="page-header">
         <h1 class="page-title">Login</h1>
       </header>
@@ -84,6 +89,7 @@
       <p>Don't have an account? <a href="/pages/register.html">Register</a></p>
       <!-- TODO: Add error message display area -->
       <div id="login_message" class="message"></div>
+      </div>
     </main>
     <footer id="main_footer" class="page-footer">
       <p class="footer-text">&copy; Algebra University College</p>

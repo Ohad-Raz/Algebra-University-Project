@@ -10,7 +10,7 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="../js/common.js"></script>
   </head>
-  <body>
+  <body class="image-bg-layout">
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
       <button id="nav_toggle" aria-expanded="false">☰</button>
@@ -30,13 +30,18 @@
         <li>
           <a href="contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="login.html">Login</a></li>
-        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
       </ul>
     </nav>
     <!-- TODO: Add contact form with name, email, message fields -->
     <!-- TODO: Add contact information section (address, phone, email) -->
     <main id="contact_main">
+      <div class="glass-panel">
       <header class="page-header">
         <h1 class="page-title">Contact Us</h1>
       </header>
@@ -88,6 +93,7 @@
           <button type="submit" class="submit-button">Submit Form</button>
         </div>
       </form>
+      </div>
     </main>
     <!-- TODO: Add map or location information -->
     <footer id="main_footer" class="page-footer">

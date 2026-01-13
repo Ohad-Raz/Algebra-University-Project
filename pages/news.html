@@ -9,7 +9,7 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="../js/common.js"></script>
   </head>
-  <body>
+  <body class="image-bg-layout">
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
       <button id="nav_toggle" aria-expanded="false">☰</button>
@@ -29,12 +29,17 @@
         <li>
           <a href="contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="login.html">Login</a></li>
-        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
       </ul>
     </nav>
     <!-- TODO: Add news articles container -->
     <main id="news_main">
+      <div class="glass-panel">
       <header class="page-header">
         <h1 class="page-title">Latest News</h1>
         <p class="intro-text">
@@ -104,6 +109,7 @@
         </p>
       </article>
       <!-- TODO: Add pagination if needed -->
+      </div>
     </main>
     <footer id="main_footer" class="page-footer">
       <p class="footer-text">&copy; Algebra University College</p>

@@ -9,7 +9,7 @@
     <!-- TODO: Link to common JavaScript file -->
     <script src="js/common.js"></script>
   </head>
-  <body class="landing-page">
+  <body class="video-bg-layout">
     <!-- Background Video (LO4) -->
     <video autoplay muted loop id="bg-video">
       <source src="video/typingOnlaptop.mp4" type="video/mp4" />
@@ -22,27 +22,32 @@
       <button id="nav_toggle" aria-expanded="false">☰</button>
       <ul id="navbar-list">
         <li>
-          <a href="/index.html">Home</a>
+          <a href="index.html">Home</a>
         </li>
         <li>
-          <a href="/pages/about.html">About</a>
+          <a href="pages/about.html">About</a>
         </li>
         <li>
-          <a href="/pages/news.html">News</a>
+          <a href="pages/news.html">News</a>
         </li>
         <li>
-          <a href="/pages/curriculum.html">Curriculum</a>
+          <a href="pages/curriculum.html">Curriculum</a>
         </li>
         <li>
-          <a href="/pages/contact.html">Contact</a>
+          <a href="pages/contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="/pages/login.html">Login</a></li>
-        <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="pages/login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
       </ul>
     </nav>
 
 
     <main id="home_main">
+      <div class="glass-panel">
           <header id="main_header">
       <div class="page-header">
         <h1 class="page-title">Welcome to Algebra University College</h1>
@@ -95,6 +100,7 @@
         <a href="/pages/news.html" class="cta-link">News</a> |
         <a href="/pages/contact.html" class="cta-link">Contact</a>
       </section>
+      </div>
     </main>
 
     <footer id="main_footer" class="page-footer">

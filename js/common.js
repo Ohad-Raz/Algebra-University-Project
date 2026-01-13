@@ -8,18 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle links safely only if they exist on the page
   if (loginLink && logoutLink) {
+    const loginItem = loginLink.parentElement;
+    const logoutItem = logoutLink.parentElement;
+
     if (token) {
-      loginLink.style.display = "none";
-      logoutLink.style.display = "block";
+      loginItem.style.display = "none";
+      logoutItem.style.display = "block";
     } else {
-      loginLink.style.display = "block";
-      logoutLink.style.display = "none";
+      loginItem.style.display = "block";
+      logoutItem.style.display = "none";
     }
 
     logoutLink.addEventListener("click", (e) => {
       e.preventDefault();
       localStorage.removeItem("token");
-      window.location.href = "/pages/login.html";
+      window.location.href = "login.html";
     });
   }
   const navToggle = document.getElementById("nav_toggle");
@@ -28,6 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
   navToggle.addEventListener("click", () => {
     navbar.classList.toggle("open");
     navToggle.setAttribute("aria-expanded", navbar.classList.contains("open"));
+  });
+
+  // Accordion Functionality
+  const accordionHeaders = document.querySelectorAll(".accordion-header");
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains("active");
+
+      // Optional: Close other items
+      document.querySelectorAll(".accordion-item").forEach((i) => {
+        i.classList.remove("active");
+      });
+
+      if (!isActive) {
+        item.classList.add("active");
+      }
+    });
   });
 });
 
