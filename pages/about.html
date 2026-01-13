@@ -6,29 +6,33 @@
     <title>About Us - Algebra University College</title>
     <!-- TODO: Link to main stylesheet -->
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/gallery.css" />
     <!-- TODO: Link to common JavaScript file -->
     <script src="../js/common.js"></script>
+    <!-- <script src="../js/gallery.js" defer></script> -->
+    <script src="../js/gallery.js" defer></script>
   </head>
   <body>
     <!-- TODO: Add navigation header -->
     <nav id="navbar">
+      <button id="nav_toggle" aria-expanded="false">☰</button>
       <ul id="navbar-list">
         <li>
-          <a href="/index.html">Home</a>
+          <a href="../index.html">Home</a>
         </li>
         <li>
-          <a href="/pages/about.html">About</a>
+          <a href="about.html">About</a>
         </li>
         <li>
-          <a href="/pages/news.html">News</a>
+          <a href="news.html">News</a>
         </li>
         <li>
-          <a href="/pages/curriculum.html">Curriculum</a>
+          <a href="curriculum.html">Curriculum</a>
         </li>
         <li>
-          <a href="/pages/contact.html">Contact</a>
+          <a href="contact.html">Contact</a>
         </li>
-        <li><a id="nav_login" href="/pages/login.html">Login</a></li>
+        <li><a id="nav_login" href="login.html">Login</a></li>
         <li><a id="nav_logout" href="#" style="display: none">Logout</a></li>
       </ul>
     </nav>
@@ -329,6 +333,22 @@
           parking zone of Zagreb parking.
         </p>
       </section>
+            <!-- LO4: Image Gallery Section -->
+      <section id="gallery" class="content-section">
+        <h2 class="section-title">Gallery</h2>
+        <div class="gallery-grid">
+          <img src="../img/galerija1.jpg" alt="Algebra Campus 1" class="gallery-item">
+          <img src="../img/galerija2.jpg" alt="Algebra Campus 2" class="gallery-item">
+          <img src="../img/kampus-iz-zraka-min-1.jpg" alt="Algebra Campus Aerial" class="gallery-item">
+          <img src="../img/novost3.jpg" alt="Algebra Students" class="gallery-item">
+        </div>
+      </section>
+
+      <!-- Lightbox Modal Container -->
+      <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+      </div>
     </main>
     <footer id="main_footer" class="page-footer">
       <p class="footer-text">&copy; Algebra University College</p>

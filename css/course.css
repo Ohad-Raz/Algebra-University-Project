@@ -42,7 +42,9 @@
     border-radius: 8px;
     border: 1px solid #ddd;
     position: sticky; /* Keeps it visible while scrolling */
-    top: 20px;
+    top: 10px; /* Adjusted to fit better under the sticky navbar */
+    max-height: 52vh; /* Prevents the box from going off-screen */
+    overflow-y: auto; /* Adds scrollbar if list is too long */
 }
 
 /* Search Input */

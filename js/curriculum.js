@@ -11,13 +11,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // 1. Fetch Data
-    const response = await fetch("https://www.fulek.com/data/api/supit/curriculum-list/en", {
-        method: "GET",
-        headers: { Authorization: `Bearer ${token}` }
-    });
-    
-    const data = await response.json();
-    allCourses = data.data; // Store globally!
+    try {
+        const response = await fetch("https://www.fulek.com/data/api/supit/curriculum-list/en", {
+            method: "GET",
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        
+        if (!response.ok) {
+            if (response.status === 401) {
+                // Token expired or invalid
+                localStorage.removeItem("token");
+                localStorage.removeItem("username");
+                window.location.href = "/pages/login.html";
+                return;
+            }
+            throw new Error("Failed to fetch curriculum");
+        }
+
+        const data = await response.json();
+        allCourses = data.data; // Store globally!
+    } catch (error) {
+        console.error("Error loading curriculum:", error);
+        // Fallback: if fetch totally fails (network), maybe show a message
+        const container = document.getElementById("courses_container");
+        if (container) {
+            container.innerHTML = `<p class="error-message">Error loading courses. Please try again later.</p>`;
+        }
+        return;
+    }
 
     // 2. Initial Render
     renderCourses(allCourses);
