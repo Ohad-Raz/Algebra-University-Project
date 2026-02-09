@@ -1,15 +1,22 @@
-/* --- Base Typography & Reset --- */
+/* 
+   style.css
+   Global styles, variables, navigation, and shared components.
+   Organized as: General -> Navigation -> Headers -> Components -> Utility
+*/
+
+/* --- 1. General Typography & Variables --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary-blue: #002d72;
+  --primary-blue: #002d72; /* The main brand color */
   --primary-blue-hover: #0040a1;
   --bg-light: #f8f9fa;
   --text-dark: #333;
   --text-light: #ffffff;
-  --radius: 8px;
+  --radius: 8px; /* Consistent corner rounding */
   --shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,11 +27,12 @@ body {
   line-height: 1.6;
 }
 
+/* Main container: Centered with max-width for large screens. */
 main {
   max-width: 1100px;
   margin: 0 auto;
   padding: 60px 20px;
-  min-height: 80vh; /* Ensures footer stays down */
+  min-height: 80vh; 
   animation: fadeIn 0.8s ease-in-out;
 }
 
@@ -33,120 +41,43 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Utility Classes for Contrast --- */
-.video-bg-layout { color: var(--text-light); }
-.video-bg-layout #navbar { background: rgba(255, 255, 255, 0.95); }
-.video-bg-layout a:not(#navbar a) { color: #80bfff; } /* Lighter blue for links on dark background */
-
-.image-bg-layout {
-    background: url('../img/abstract_bg.png') no-repeat center center fixed;
-    background-size: cover;
-}
-.image-bg-layout::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.6); /* Subtle light overlay for legibility */
-    z-index: -1;
-}
-
-/* --- Content Cards (Glassmorphism) --- */
-.glass-panel {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-bottom: 20px;
-    width: 100%; /* Ensure panels fill their container */
-}
-
-/* --- Video Page Transparency Overrides --- */
-.video-bg-layout .glass-panel {
-    background: rgba(255, 255, 255, 0.05); /* Increased transparency as requested */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth on semi-visible background */
-}
-
-/* --- Page Headers --- */
-h1, h2, h3 {
-  transition: all 0.3s ease;
-  color: var(--primary-blue);
-  cursor: default;
-}
-
-h1:hover, h2:hover, h3:hover {
-  /* letter-spacing: 0.1px; */
-  filter: brightness(1.7);
-}
-
-.page-header {
-  margin-bottom: 40px;
-  text-align: center;
-}
-.page-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  /* color managed by h1/h2/h3 rules */
-}
-
-/* Light headers for dark backgrounds */
-.video-bg-layout h1, 
-.video-bg-layout h2, 
-.video-bg-layout h3 { 
-  color: #e0f0ff; /* Soft "academic" blue-white */
-}
-
-.video-bg-layout h1:hover, 
-.video-bg-layout h2:hover, 
-.video-bg-layout h3:hover {
-  color: var(--text-light);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.intro-text {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
-}
-
-/* --- Background Video (LO4) --- */
-#bg-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -2;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65); /* Made slightly darker for better contrast */
-  z-index: -1;
-}
-
-/* --- Navigation --- */
+/* --- 2. Navigation --- */
 #navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
   box-shadow: var(--shadow);
-  padding: 10px 0;
+  padding: 5px 20px; /* Added horizontal padding for logo */
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.nav-logo a {
+    display: block;
+    height: 40px;
+    /* We use a mask to "paint" the logo with a light blue gradient */
+    background: linear-gradient(135deg, var(--primary-blue), #80bfff);
+    -webkit-mask: url('../img/Algebra-logo.png') no-repeat center;
+    mask: url('../img/Algebra-logo.png') no-repeat center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 180px; /* Base width */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .nav-logo a { width: 140px; } /* Smaller logo on mobile */
+}
+
+.nav-logo a:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.nav-logo img {
+    display: none; /* Hide the original image as the mask handles the shape */
 }
 
 #navbar-list {
@@ -160,66 +91,6 @@ h1:hover, h2:hover, h3:hover {
   margin: 0 auto;
 }
 
-.nav-right {
-  margin-left: auto;
-}
-
-.nav-item-login, .nav-item-logout {
-  display: none; /* Hidden by default to prevent flashing wrong state on load */
-}
-
-/* --- Accordion Styles --- */
-.accordion-item {
-    border-bottom: 1px solid rgba(0, 74, 153, 0.1);
-    margin-bottom: 10px;
-}
-
-.accordion-header {
-    width: 100%;
-    padding: 15px 20px;
-    background: transparent;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.2s;
-    border-radius: 8px;
-}
-
-.accordion-header:hover {
-    background: rgba(0, 74, 153, 0.05);
-}
-
-.accordion-title {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.accordion-icon {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-    color: var(--primary-blue);
-}
-
-.accordion-item.active .accordion-icon {
-    transform: rotate(45deg);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s;
-    padding: 0 20px;
-}
-
-.accordion-item.active .accordion-content {
-    max-height: 1000px; /* Large enough to fit content */
-    padding: 15px 20px;
-}
-
 #navbar-list a {
   text-decoration: none;
   color: #333;
@@ -231,9 +102,17 @@ h1:hover, h2:hover, h3:hover {
   color: var(--primary-blue);
 }
 
+.nav-right {
+  margin-left: auto;
+}
+
+.nav-item-login, .nav-item-logout {
+  display: none; 
+}
+
 #nav_login, #nav_logout {
   padding: 8px 24px;
-  border-radius: 4px; /* More professional sharp edges */
+  border-radius: 4px; 
   border: 2px solid var(--primary-blue);
   background: transparent;
   color: var(--primary-blue);
@@ -255,13 +134,76 @@ h1:hover, h2:hover, h3:hover {
   padding: 0 20px;
 }
 
-/* --- Footer --- */
+/* Responsive Menu: Hamburger displayed on small screens. */
+@media (max-width: 768px) {
+  #nav_toggle { display: block; }
+  
+  #navbar-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  #navbar.open #navbar-list { display: flex; }
+  .nav-right { margin-left: 0; margin-top: 10px; }
+
+  /* Mobile contrast and layout fixes */
+  .page-footer { padding: 40px 15px 20px; }
+  .glass-panel { padding: 25px 20px; } /* Reduce padding on mobile */
+}
+
+/* --- 3. Page Headers --- */
+/* Consistent blue headers with a brightness glow on hover. */
+h1, h2, h3 {
+  transition: all 0.3s ease;
+  color: var(--primary-blue);
+  cursor: default;
+}
+
+h1:hover, h2:hover, h3:hover {
+  filter: brightness(1.7);
+}
+
+.page-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* --- 4. Global Components (Glassmorphism & Footer) --- */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
 .page-footer {
-  background: #f8f9fa;
-  padding: 50px 20px 20px;
+  background: var(--primary-blue); /* Unified Brand Blue */
+  padding: 60px 20px 30px;
   margin-top: 60px;
-  border-top: 1px solid rgba(0, 74, 153, 0.1);
-  color: #444;
+  color: #fff; /* White text for contrast */
 }
 
 .footer-container {
@@ -274,42 +216,83 @@ h1:hover, h2:hover, h3:hover {
 }
 
 .footer-col { flex: 1; min-width: 250px; }
-.footer-col h4 { color: var(--primary-blue); margin-bottom: 15px; }
-.footer-col ul { list-style: none; padding: 0; }
-.footer-col li { margin-bottom: 8px; font-size: 0.9rem; }
-.footer-col a { text-decoration: none; color: #666; transition: 0.2s; }
-.footer-col a:hover { color: var(--primary-blue); }
 
-.social-links { display: flex; gap: 12px; margin-top: 12px; }
+.footer-logo {
+    display: block;
+    height: 40px;
+    margin-bottom: 25px;
+    background: #fff; /* White logo on blue background */
+    -webkit-mask: url('../img/Algebra-logo.png') no-repeat left center;
+    mask: url('../img/Algebra-logo.png') no-repeat left center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 180px;
+}
+
+.footer-col h4 { 
+    color: #fff; 
+    margin-bottom: 20px; 
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Red accent under footer titles */
+.footer-col h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #ff4d4d;
+}
+
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 12px; }
+
+/* 
+   We use ID-based specificity to force footer links to be white.
+   This overcomes the broader .video-bg-layout a rule.
+*/
+#main_footer a { 
+    color: rgba(255, 255, 255, 0.9) !important; 
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+#main_footer a:hover { 
+    color: #fff !important; 
+    padding-left: 5px; /* Subtle hover slide */
+}
+.footer-col li { margin-bottom: 10px; font-size: 0.95rem; }
+.footer-col a { text-decoration: none; color: rgba(255, 255, 255, 0.8); transition: 0.3s; }
+.footer-col a:hover { color: #fff; padding-left: 5px; }
+
+.social-links { display: flex; gap: 15px; margin-top: 20px; }
 .footer-col a.social-icon { 
-  color: #fff; 
-  width: 32px; height: 32px;
-  background: var(--primary-blue);
+  color: var(--primary-blue); 
+  width: 36px; height: 36px;
+  background: #fff;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  transition: 0.2s;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.social-icon:hover { transform: translateY(-2px); opacity: 0.9; color: #fff; }
-.social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+.social-icon:hover { transform: translateY(-5px); background: #eee; }
+.social-icon img { 
+    width: 20px; 
+    height: 20px; 
+    object-fit: contain;
+    /* This filter converts the white PNG to our brand blue (#002d72) */
+    filter: brightness(0) saturate(100%) invert(11%) sepia(85%) saturate(3048%) hue-rotate(205deg) brightness(97%) contrast(105%);
+}
 
 .footer-bottom {
-  text-align: center; margin-top: 30px; padding-top: 20px;
-  border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; color: #888;
+  text-align: center; margin-top: 50px; padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);
 }
 
-/* Video Background Overrides */
-.video-bg-layout .page-footer { background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); border-top-color: #333; color: white; }
-.video-bg-layout .footer-col h4 { color: #e0f0ff; }
-.video-bg-layout .footer-col a { color: #ccc; }
-.video-bg-layout .footer-col a:hover { color: white; }
-.video-bg-layout .footer-bottom { border-top-color: #444; }
-
-/* --- Form Styling --- */
-.contact-form, .login-form, .register-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
+/* --- 5. Shared Form Elements --- */
 .form-group {
   margin-bottom: 20px;
   text-align: left;
@@ -364,56 +347,62 @@ h1:hover, h2:hover, h3:hover {
   background-color: var(--primary-blue-hover);
 }
 
-/* Ensure forms on video background look correct */
-.video-bg-layout .form-label { color: var(--text-light); }
-.video-bg-layout .form-input { 
-  background: rgba(255, 255, 255, 0.9); 
-  border: none; 
+/* --- 6. Global Layouts & Contrast Utilities --- */
+/* Background Video (LO4 requirement): Covers the whole screen. */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+  object-fit: cover;
 }
 
-/* --- Video Content Sections --- */
-.video-section {
-  text-align: center;
-  margin-top: 50px;
-}
-
-#small-video {
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 700px;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65); 
+  z-index: -1;
 }
 
-/* --- Map --- */
-.map-container {
-  margin-top: 40px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(0, 74, 153, 0.1);
-  animation: fadeIn 1.2s ease-in-out;
-}
+/* Layout for pages with background video (Home/Login) */
+.video-bg-layout { color: var(--text-dark); }
+.video-bg-layout #navbar { background: rgba(255, 255, 255, 0.95); }
+.video-bg-layout a:not(#navbar a) { color: var(--primary-blue); } 
 
-.map-container iframe {
-  display: block; /* Removes any default spacing below the iframe */
+/* Ensure footer links remain white even in video-bg-layout */
+.video-bg-layout .page-footer p,
+.video-bg-layout .page-footer h4,
+.video-bg-layout .page-footer a { 
+    color: #fff; 
 }
+.video-bg-layout .page-footer a { color: rgba(255,255,255,0.8); }
+.video-bg-layout .page-footer a:hover { color: #fff; }
 
-/* --- Responsive Menu --- */
-@media (max-width: 768px) {
-  #nav_toggle { display: block; }
-  
-  #navbar-list {
-    display: none;
-    position: absolute;
-    top: 100%;
+.video-bg-layout h1, .video-bg-layout h2, .video-bg-layout h3 { color: var(--primary-blue); }
+.video-bg-layout .glass-panel {
+    background: rgba(255, 255, 255, 0.85); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); 
+}
+/* Unified footer handles the contrast itself now */
+
+/* Layout for sub-pages with an image background */
+.image-bg-layout {
+    background: url('../img/abstract_bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+.image-bg-layout::before {
+    content: "";
+    position: fixed;
+    top: 0;
     left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: var(--shadow);
-  }
-
-  #navbar.open #navbar-list { display: flex; }
-  .nav-right { margin-left: 0; margin-top: 10px; }
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); 
+    z-index: -1;
 }

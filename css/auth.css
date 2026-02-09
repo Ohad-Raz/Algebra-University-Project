@@ -1,0 +1,23 @@
+/* 
+   auth.css
+   Specific styles for Login and Register forms, 
+   including video background overrides.
+*/
+
+/* Specific width for authentication forms to keep them centered and readable */
+.login-form, .register-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Here I'm overriding the label color for the video background pages (Login/Register) */
+/* This makes sure the white text stands out against the dark video overlay. */
+.video-bg-layout .form-label { 
+    color: var(--text-light); 
+}
+
+/* I also give the inputs a slight background so they are clearly visible on the video. */
+.video-bg-layout .form-input { 
+  background: rgba(255, 255, 255, 0.9); 
+  border: none; 
+}

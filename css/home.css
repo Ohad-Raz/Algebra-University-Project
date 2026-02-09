@@ -1,0 +1,57 @@
+/* 
+   home.css
+   Specific styles for the Home page unique sections.
+*/
+
+/* Call to Action links: I make them look like professional buttons with a hover effect. */
+.cta-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-blue);
+    color: white !important; /* Ensure it stays white even on light backgrounds */
+    text-decoration: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+    margin: 10px 5px;
+}
+
+.cta-link:hover {
+    background-color: var(--primary-blue-hover);
+    transform: translateY(-2px);
+}
+
+/* Feature list styling for the "Why Choose Algebra" section */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.feature-item {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.feature-item::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+/* Section titles for the home page */
+.section-title {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+}
+
+.section-text {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: inherit;
+}

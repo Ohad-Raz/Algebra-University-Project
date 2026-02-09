@@ -5,30 +5,47 @@
  */
 
 // --- Navigation & Shared UI ---
-const token = localStorage.getItem("token");
+/**
+ * Updates the navigation visibility based on the user's login status.
+ * I use classes instead of IDs to catch all instances (desktop/mobile).
+ */
+function updateNavigation() {
+    const token = localStorage.getItem("token");
+    const loginItems = document.querySelectorAll('.nav-item-login');
+    const logoutItems = document.querySelectorAll('.nav-item-logout');
 
-const loginLink = document.getElementById("nav_login");
-const logoutLink = document.getElementById("nav_logout");
-
-// Toggle links safely only if they exist on the page
-if (loginLink && logoutLink) {
-  const loginItem = loginLink.parentElement;
-  const logoutItem = logoutLink.parentElement;
-
-  if (token) {
-    loginItem.style.display = "none";
-    logoutItem.style.display = "block";
-  } else {
-    loginItem.style.display = "block";
-    logoutItem.style.display = "none";
-  }
-
-  logoutLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.removeItem("token");
-    window.location.href = "login.html";
-  });
+    if (token) {
+        loginItems.forEach(item => item.style.display = 'none');
+        logoutItems.forEach(item => item.style.display = 'block');
+    } else {
+        loginItems.forEach(item => item.style.display = 'block');
+        logoutItems.forEach(item => item.style.display = 'none');
+    }
 }
+
+// Initial update
+updateNavigation();
+
+// Logout Logic
+const logoutBtn = document.getElementById("nav_logout");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("token");
+        
+        // Path handling: If we are in the 'pages' folder, redirect to 'login.html' here.
+        // Otherwise, redirect to 'pages/login.html'.
+        const currentPath = window.location.pathname;
+        if (currentPath.includes("/pages/")) {
+            window.location.href = "login.html";
+        } else {
+            window.location.href = "pages/login.html";
+        }
+    });
+}
+
+// This block handles the mobile 'hamburger' menu toggle.
+// It simply adds or removes an 'open' class to show/hide the menu on small screens.
 const navToggle = document.getElementById("nav_toggle");
 const navbar = document.getElementById("navbar");
 
@@ -39,14 +56,16 @@ if (navToggle && navbar) {
   });
 }
 
-// Accordion Functionality
+// Accordion Functionality (used for History/FAQ sections)
+// I'm selecting all header elements for the accordion. When one is clicked, 
+// I toggle the 'active' class on its parent item to expand or collapse it.
 const accordionHeaders = document.querySelectorAll(".accordion-header");
 accordionHeaders.forEach((header) => {
   header.addEventListener("click", () => {
     const item = header.parentElement;
     const isActive = item.classList.contains("active");
 
-    // Optional: Close other items
+    // I clear all other active items first so only one stays open at a time.
     document.querySelectorAll(".accordion-item").forEach((i) => {
       i.classList.remove("active");
     });

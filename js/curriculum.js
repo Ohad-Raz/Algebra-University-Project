@@ -5,16 +5,19 @@
  */
 
 // --- State Management ---
-// //async allows us to wait!
-// Global variable to store courses for filtering without re-fetching
+// I create a global array to store all courses fetched from the API.
+// This allows me to filter them locally without making new network requests every time.
 let allCourses = [];
 
+// I check if the token exists right away. If not, the user can't see this page.
 const token = localStorage.getItem("token");
 if (!token) {
     window.location.href = "login.html";
 }
 
-// 1. Fetch Data
+// 1. Fetch Curriculum Data
+// I'm using an async function with 'await' to fetch the whole list of courses.
+// Notice that I include the Bearer token in the 'Authorization' header.
 async function initCurriculum() {
     try {
         const response = await fetch("https://www.fulek.com/data/api/supit/curriculum-list/en", {
@@ -23,10 +26,9 @@ async function initCurriculum() {
         });
         
         if (!response.ok) {
+            // Handle specific case where token might have expired (401 Unauthorized)
             if (response.status === 401) {
-                // Token expired or invalid
                 localStorage.removeItem("token");
-                localStorage.removeItem("username");
                 window.location.href = "login.html";
                 return;
             }
@@ -34,9 +36,9 @@ async function initCurriculum() {
         }
 
         const data = await response.json();
-        allCourses = data.data; // Store globally!
+        allCourses = data.data; // Saving the result to our global array
         
-        // 2. Initial Render
+        // After fetching, I render the initial cards and populate the 'search suggestions'.
         renderCourses(allCourses);
         populateSuggestions(allCourses);
     } catch (error) {
@@ -52,16 +54,18 @@ async function initCurriculum() {
 initCurriculum();
 
 // 3. Setup Search Listener
+// This listens for every keystroke in the search bar.
+// I filter our global 'allCourses' array based on whether the name contains the search term.
 const searchInput = document.getElementById("course_search");
 if (searchInput) {
     searchInput.addEventListener("input", (e) => {
         const term = e.target.value.toLowerCase();
         
-        // Filter logic
         const filtered = allCourses.filter(course => 
             course.course.toLowerCase().includes(term)
         );
         
+        // I re-render the course grid with only the filtered items.
         renderCourses(filtered);
     });
 }
@@ -69,10 +73,11 @@ if (searchInput) {
 // Global array to store selected courses
 let selectedCourses = [];
 
-// Helper function to render a list of courses
+// Helper function to render the course grid
+// I'm dynamically creating HTML elements for each course.
 function renderCourses(courses) {
     const container = document.getElementById("courses_container");
-    container.innerHTML = ""; // Clear current list
+    container.innerHTML = ""; 
 
     courses.forEach((c) => {
         const item = document.createElement("div");
@@ -86,14 +91,13 @@ function renderCourses(courses) {
             <span class="curriculum_message"></span>
         `;
 
-        // Make the whole card clickable for details
+        // If the card is clicked (but not the button), I navigate to the details page.
         item.addEventListener("click", (e) => {
-            // If the user clicked the "Add" button, don't navigate!
             if (e.target.classList.contains("add-btn")) return;
             window.location.href = `course.html?id=${c.id}`;
         });
         
-        // Add click listener for the "Add" button
+        // I attach a listener to the 'Add' button to push it to our selected list.
         const addBtn = item.querySelector(".add-btn");
         addBtn.addEventListener("click", (e) => addToSelection(c,e));
 
@@ -130,6 +134,8 @@ function removeFromSelection(courseId) {
     renderTable();
 }
 
+// Function to update the summary table (ECTS and Hours)
+// I loop through every selected course and calculate the totals.
 function renderTable() {
     const tbody = document.getElementById("selected_body");
     const totalEctsEl = document.getElementById("total_ects");
@@ -151,14 +157,13 @@ function renderTable() {
             <td>${c.hours}</td>
             <td><button class="delete-btn">Remove</button></td>
         `;
-        // querySelector Returns the FIRST matching element directly
-        // Remove button logic
-        row.querySelector(".delete-btn").addEventListener("click", () => removeFromSelection(c.id));
         
+        // I add a listener for the 'Remove' button to update the state.
+        row.querySelector(".delete-btn").addEventListener("click", () => removeFromSelection(c.id));
         tbody.appendChild(row);
     });
 
-    // Update Totals
+    // Finally, I update the total numbers at the bottom of the table.
     totalEctsEl.innerText = sumEcts;
     totalHoursEl.innerText = sumHours;
 }

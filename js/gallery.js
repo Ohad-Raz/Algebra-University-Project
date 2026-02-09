@@ -5,15 +5,17 @@
  */
 
 // --- Lightbox Initialization ---
+// I'm selecting all images with the 'gallery-item' class.
 const images = document.querySelectorAll('.gallery-item');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.close-lightbox');
 
-// Add a click event to every image in the gallery
+// I loop through every image and add a click listener.
 images.forEach(img => {
   img.addEventListener('click', () => {
-    // Show the lightbox and set the image source
+    // When an image is clicked, I show the 'lightbox' overlay and set 
+    // its source to the clicked image's source.
     lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
   });

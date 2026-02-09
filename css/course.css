@@ -1,3 +1,4 @@
+/* This class defines the looks of the individual course cards in the curriculum grid. */
 .course-item {
   border: 1px solid #000;
   padding: 10px;
@@ -29,6 +30,8 @@
 }
 
 /* Right Column: Table */
+/* This section is the sidebar on the right where the selected courses are listed. */
+/* I use 'position: sticky' so it stays visible even when you scroll through a long list of courses. */
 .curriculum-selected-section {
     flex: 1;
     min-width: 300px;
@@ -37,8 +40,8 @@
     border-radius: 8px;
     border: 1px solid #ddd;
     position: sticky;
-    top: 80px; /* Space for navbar */
-    max-height: 70vh; /* Better vertical space on tablets */
+    top: 80px; 
+    max-height: 70vh; 
     overflow-y: auto;
 }
 
@@ -108,13 +111,13 @@
 .add-btn:hover { background-color: var(--primary-blue-hover); }
 
 /* media queries */
+/* On mobile, I switch the layout to a single column to ensure everything stays readable. */
 @media (max-width: 600px) {
     .curriculum-layout {
-        flex-direction: column-reverse; /* Only stack on small phones */
-        
+        flex-direction: column-reverse; 
     }
     .curriculum-selected-section {
-    max-height: 45vh; /* Better vertical space on tablets */
+    max-height: 45vh; 
     padding: 10px;
     top:0px;
 }
