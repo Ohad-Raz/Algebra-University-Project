@@ -1,4 +1,10 @@
-// TODO: Add curriculum data structure
+/**
+ * curriculum.js
+ * Curriculum management, data fetching, and course selection 
+ * logic for the secured student area.
+ */
+
+// --- State Management ---
 // //async allows us to wait!
 // Global variable to store courses for filtering without re-fetching
 let allCourses = [];

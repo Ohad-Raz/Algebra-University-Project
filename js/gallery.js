@@ -1,4 +1,10 @@
-// Select all gallery images and the lightbox elements
+/**
+ * gallery.js
+ * Interactive lightbox logic for the image gallery 
+ * on the About page.
+ */
+
+// --- Lightbox Initialization ---
 const images = document.querySelectorAll('.gallery-item');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');

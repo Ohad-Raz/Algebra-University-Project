@@ -1,5 +1,10 @@
-// TODO: Add common utility functions
-// TODO: Add navigation functionality
+/**
+ * common.js
+ * Global utility functions, navigation logic, and shared UI components
+ * across all pages of the Algebra University website.
+ */
+
+// --- Navigation & Shared UI ---
 document.addEventListener("DOMContentLoaded", () => {
   const token = localStorage.getItem("token");
 
@@ -52,8 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// TODO: Add header/footer rendering logic
-// TODO: Add common event handlers
-// TODO: Add helper functions for DOM manipulation
-// TODO: Add utility functions for data formatting
-// TODO: Add error handling utilities
+// --- Future Utilities & Hooks ---

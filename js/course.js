@@ -1,3 +1,9 @@
+/**
+ * course.js
+ * Logic for fetching and displaying detailed information 
+ * for a single course via the API.
+ */
+
 document.addEventListener("DOMContentLoaded", async () => {
   const id = new URLSearchParams(window.location.search).get("id");
   const response = await fetch(

@@ -1,6 +1,10 @@
-// TODO: Add authentication state management
+/**
+ * auth.js
+ * Authentication state management and form validation for 
+ * Algebra University project.
+ */
 
-// TODO: Add login form validation
+// --- Initialization & Validation ---
 document.addEventListener("DOMContentLoaded", () => {
   const registerForm = document.getElementById("register_form");
   if (registerForm) {
@@ -54,9 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// TODO: Add login submission handler
-// TODO: Add session management functions
-// TODO: Add logout functionality
+// --- Submission Handlers & Protection Logic ---
 // Redirect logic for protected pages
 if (window.location.pathname.includes("curriculum.html")) {
   if (!localStorage.getItem("token")) {
