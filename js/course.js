@@ -4,8 +4,9 @@
  * for a single course via the API.
  */
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const id = new URLSearchParams(window.location.search).get("id");
+const id = new URLSearchParams(window.location.search).get("id");
+
+async function loadCourse() {
   const response = await fetch(
     `https://www.fulek.com/data/api/supit/get-curriculum/${id}`,
     {
@@ -30,4 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       <p>Semester: ${c.semestar}, Type: ${c.tip}</p>
   `;
   document.getElementById("course_container").appendChild(courseContainer);
-});
+}
+
+if (id) {
+  loadCourse();
+}

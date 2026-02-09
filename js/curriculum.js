@@ -9,14 +9,13 @@
 // Global variable to store courses for filtering without re-fetching
 let allCourses = [];
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-        window.location.href = "login.html";
-        return;
-    }
+const token = localStorage.getItem("token");
+if (!token) {
+    window.location.href = "login.html";
+}
 
-    // 1. Fetch Data
+// 1. Fetch Data
+async function initCurriculum() {
     try {
         const response = await fetch("https://www.fulek.com/data/api/supit/curriculum-list/en", {
             method: "GET",
@@ -36,35 +35,36 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const data = await response.json();
         allCourses = data.data; // Store globally!
+        
+        // 2. Initial Render
+        renderCourses(allCourses);
+        populateSuggestions(allCourses);
     } catch (error) {
         console.error("Error loading curriculum:", error);
-        // Fallback: if fetch totally fails (network), maybe show a message
         const container = document.getElementById("courses_container");
         if (container) {
             container.innerHTML = `<p class="error-message">Error loading courses. Please try again later.</p>`;
         }
         return;
     }
+}
 
-    // 2. Initial Render
-    renderCourses(allCourses);
-    populateSuggestions(allCourses);
+initCurriculum();
 
-    // 3. Setup Search Listener
-    const searchInput = document.getElementById("course_search");
-    if (searchInput) {
-        searchInput.addEventListener("input", (e) => {
-            const term = e.target.value.toLowerCase();
-            
-            // Filter logic
-            const filtered = allCourses.filter(course => 
-                course.course.toLowerCase().includes(term)
-            );
-            
-            renderCourses(filtered);
-        });
-    }
-});
+// 3. Setup Search Listener
+const searchInput = document.getElementById("course_search");
+if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+        const term = e.target.value.toLowerCase();
+        
+        // Filter logic
+        const filtered = allCourses.filter(course => 
+            course.course.toLowerCase().includes(term)
+        );
+        
+        renderCourses(filtered);
+    });
+}
 
 // Global array to store selected courses
 let selectedCourses = [];
