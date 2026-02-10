@@ -6,8 +6,8 @@
 
 // --- Initialization & Validation ---
 
-// Here I'm handling the Register form submission. 
-// I take the username and password from the input fields and send them to the API.
+// Handling the Register form submission. 
+// Username and password values are extracted and sent to the API.
 const registerForm = document.getElementById("register_form");
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
@@ -16,7 +16,7 @@ if (registerForm) {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value;
 
-    // I'm using 'fetch' to send a POST request with the user data as a JSON string.
+    // Sending request with user credentials.
     const response = await fetch("https://www.fulek.com/data/api/user/register", {
       method: "POST",
       body: JSON.stringify({ username, password }),
@@ -25,11 +25,11 @@ if (registerForm) {
 
     const data = await response.json();
 
-    // If the API returns success, I redirect the user to the login page.
+    // On API success, the user is redirected to the login page.
     if (data.isSuccess) {
       window.location.href = "login.html";
     } else {
-      // Otherwise, I show the specific error message returned by the server.
+      // Show the specific error message returned by the server.
       const msg = document.getElementById("register_message");
       if (msg) msg.textContent = data.errorMessages?.[0] ?? "Registration failed";
     }
@@ -53,21 +53,21 @@ if (loginForm) {
 
     const data = await response.json();
 
-    // On successful login, I save the unique 'token' to localStorage.
-    // This token is required for all subsequent API calls in the secured areas.
+    // Successful login returns a token, which is saved to localStorage.
+    // This token will be used for calling the curriculum courses.
     if (data.isSuccess) {
       localStorage.setItem("token", data.data.token);
       window.location.href = "curriculum.html";
     } else {
       const msg = document.getElementById("login_message");
-      if (msg) msg.textContent = data.errorMessages?.[0] ?? "Login failed";
+      if (msg) msg.textContent = data.errorMessages?.[0] ?? "Login failed";//elvies operator if error message is null or undefined, it will display "Login failed"
     }
   });
 }
 
 // --- Route Protection ---
-// Here I'm checking if the user is trying to access the Curriculum page without being logged in.
-// If the token is missing, I kick them back to the Login page for security.
+// Check for Curriculum page access without being logged in.
+// If the token is missing, redirect to the Login page for security.
 if (window.location.pathname.includes("curriculum.html")) {
   if (!localStorage.getItem("token")) {
     window.location.href = "login.html";

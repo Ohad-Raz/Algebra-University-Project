@@ -7,12 +7,12 @@
 // --- Navigation & Shared UI ---
 /**
  * Updates the navigation visibility based on the user's login status.
- * I use classes instead of IDs to catch all instances (desktop/mobile).
+ * Using classes for all nav items ensures both desktop and mobile navigation are updated.
  */
 function updateNavigation() {
     const token = localStorage.getItem("token");
     const loginItems = document.querySelectorAll('.nav-item-login');
-    const logoutItems = document.querySelectorAll('.nav-item-logout');
+    const logoutItems = document.querySelectorAll('.nav-item-logout');//technically I have one so all in redundant but future proof
 
     if (token) {
         loginItems.forEach(item => item.style.display = 'none');
@@ -33,8 +33,8 @@ if (logoutBtn) {
         e.preventDefault();
         localStorage.removeItem("token");
         
-        // Path handling: If we are in the 'pages' folder, redirect to 'login.html' here.
-        // Otherwise, redirect to 'pages/login.html'.
+        // Path handling: If in the 'pages' folder, redirect to 'login.html' here.
+        // Otherwise, redirect to 'pages/login.html' can happen with my index.html vs pages folder.
         const currentPath = window.location.pathname;
         if (currentPath.includes("/pages/")) {
             window.location.href = "login.html";
@@ -52,20 +52,19 @@ const navbar = document.getElementById("navbar");
 if (navToggle && navbar) {
   navToggle.addEventListener("click", () => {
     navbar.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", navbar.classList.contains("open"));
   });
 }
 
 // Accordion Functionality (used for History/FAQ sections)
-// I'm selecting all header elements for the accordion. When one is clicked, 
-// I toggle the 'active' class on its parent item to expand or collapse it.
+// Selecting all header elements for the accordion. When one is clicked, 
+// the 'active' class is toggled on its parent item to expand or collapse it.
 const accordionHeaders = document.querySelectorAll(".accordion-header");
 accordionHeaders.forEach((header) => {
   header.addEventListener("click", () => {
-    const item = header.parentElement;
+    const item = header.parentElement
     const isActive = item.classList.contains("active");
 
-    // I clear all other active items first so only one stays open at a time.
+    // Clear all other active items first so only one stays open at a time.
     document.querySelectorAll(".accordion-item").forEach((i) => {
       i.classList.remove("active");
     });
@@ -76,4 +75,3 @@ accordionHeaders.forEach((header) => {
   });
 });
 
-// --- Future Utilities & Hooks ---

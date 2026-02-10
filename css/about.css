@@ -5,12 +5,13 @@
 */
 
 /* --- Accordion Styles --- */
-/* Accordion: I'm using a simple 'max-height' transition for the smooth expand/collapse effect. */
+/* accordion milestones for the history section; each one expands smoothly when clicked */
 .accordion-item {
     border-bottom: 1px solid rgba(0, 74, 153, 0.1);
     margin-bottom: 10px;
 }
 
+/* Accordion Header: The clickable part that toggles the content. */
 .accordion-header {
     width: 100%;
     padding: 15px 20px;
@@ -29,24 +30,27 @@
     background: rgba(0, 74, 153, 0.05);
 }
 
+/* Accordion Title: The text for each history milestone. */
 .accordion-title {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
+/* Accordion Icon: A simple "+" or "x" icon to show if the section is open. */
 .accordion-icon {
     font-size: 1.2rem;
     transition: transform 0.3s ease;
     color: var(--primary-blue);
 }
 
-/* 
+/* rotate icon when accordion is active */
 .accordion-item.active .accordion-icon {
     transform: rotate(45deg);
 } 
-*/
 
+
+/* Accordion Content: Hidden by default; it expands smoothly when active. */
 .accordion-content {
     max-height: 0;
     overflow: hidden;
@@ -59,20 +63,9 @@
     padding: 15px 20px;
 }
 
-/* --- Highlights Video Section (LO4) --- */
-.video-section {
-  text-align: center;
-  margin-top: 50px;
-}
-
-#small-video {
-  width: 100%;
-  max-width: 700px;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
 
 /* --- Partners Grid --- */
+/* Partners Grid: Using CSS Grid to spread logos evenly across the row. */
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -81,6 +74,15 @@
     margin-top: 30px;
 }
 
+/* Small Video: Keeps the highlight video centered and neatly sized. */
+#small-video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Partner Card: Each logo gets its own white box with a hover lift. */
 .partner-card {
     background: white;
     padding: 20px;
@@ -108,4 +110,20 @@
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--primary-blue);
+}
+
+/* styling the new banner on the about page */
+.about-banner-image {
+    width: 100%;
+    height: 200px; /* narrow height as requested */
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0; /* round top corners only */
+    margin-bottom: 30px;
+}
+
+.about-banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* covers the area without stretching */
+    display: block;
 }

@@ -1,34 +1,37 @@
-/* 
-   news.css
-   Specific styles for news articles and titles.
-*/
+/* layout and titles for my news articles */
 
+/* individual news posts with a neat border between them */
 .news-item {
     margin-bottom: 40px;
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* don't need a border on the very last post since nothing follows it */
 .news-item:last-of-type {
     border-bottom: none;
 }
 
+/* news titles using my brand blue */
 .news-title {
     margin-bottom: 15px;
     font-size: 1.5rem;
     color: var(--primary-blue);
 }
 
+/* using flexbox so my text and images sit side-by-side */
 .news-flex {
     display: flex;
     gap: 30px;
     align-items: flex-start;
 }
 
+/* swaps the side the image is on for a nice alternating look */
 .news-flex.reverse {
     flex-direction: row-reverse;
 }
 
+/* text takes up 2 parts of the space while the image takes 1 */
 .news-text {
     flex: 2;
 }
@@ -37,6 +40,7 @@
     flex: 1;
 }
 
+/* styling the news images to keep them all consistent */
 .news-image img {
     width: 100%;
     border-radius: var(--radius);
@@ -48,10 +52,22 @@
         flex-direction: column;
     }
     .news-image {
-        margin-top: 15px; /* Ensure spacing between text and image on mobile */
+        margin-top: 15px; /* making sure there's enough room between text and image on mobile */
         order: 2; /* Always put image after text on mobile */
     }
     .news-text {
         order: 1;
     }
+}
+/* section for the highlights video at the bottom */
+.video-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#small-video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }

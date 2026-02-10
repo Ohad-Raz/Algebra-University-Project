@@ -5,24 +5,23 @@
  */
 
 // --- Lightbox Initialization ---
-// I'm selecting all images with the 'gallery-item' class.
+// Selecting all images with the 'gallery-item' class.
 const images = document.querySelectorAll('.gallery-item');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeBtn = document.querySelector('.close-lightbox');
 
-// I loop through every image and add a click listener.
+// Loop through every image to add a click listener.
 images.forEach(img => {
   img.addEventListener('click', () => {
-    // When an image is clicked, I show the 'lightbox' overlay and set 
-    // its source to the clicked image's source.
+    // Show the 'lightbox' overlay and set the source to the clicked image.
     lightbox.style.display = 'flex';
-    lightboxImg.src = img.src;
+    lightboxImg.src = img.src;//using img.src to get the image source
   });
 });
 
 /* 
-   We keep these listeners OUTSIDE the loop.
+   Listeners kept OUTSIDE the loop for efficiency.
    This is more efficient because we only need ONE listener for the close button,
    not one for every single image.
 */

@@ -8,18 +8,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary-blue: #002d72; /* The main brand color */
+  --primary-blue: #002d72; /* my main brand color for Algebra */
   --primary-blue-hover: #0040a1;
   --bg-light: #f8f9fa;
   --text-dark: #333;
   --text-light: #ffffff;
-  --radius: 8px; /* Consistent corner rounding */
+  --radius: 8px; /* consistent corner rounding for buttons and cards */
   --shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 
+/* Basic reset for all elements to remove default browser spacing */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Setting the default font and background for the entire site */
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-light);
@@ -27,7 +29,7 @@ body {
   line-height: 1.6;
 }
 
-/* Main container: Centered with max-width for large screens. */
+/* my main content area with a max width so it doesn't look stretched on big screens */
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -36,12 +38,14 @@ main {
   animation: fadeIn 0.8s ease-in-out;
 }
 
+/* Animation to make the page content fade in smoothly on load */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- 2. Navigation --- */
+/* sticky navbar that stays at the top when I scroll */
 #navbar {
   display: flex;
   justify-content: space-between;
@@ -57,7 +61,7 @@ main {
 .nav-logo a {
     display: block;
     height: 40px;
-    /* We use a mask to "paint" the logo with a light blue gradient */
+    /* A mask is used to "paint" the logo with a light blue gradient. */
     background: linear-gradient(135deg, var(--primary-blue), #80bfff);
     -webkit-mask: url('../img/Algebra-logo.png') no-repeat center;
     mask: url('../img/Algebra-logo.png') no-repeat center;
@@ -71,6 +75,7 @@ main {
     .nav-logo a { width: 140px; } /* Smaller logo on mobile */
 }
 
+/* Making the logo grow slightly when hovered */
 .nav-logo a:hover {
     transform: scale(1.05);
     filter: brightness(1.2);
@@ -80,6 +85,7 @@ main {
     display: none; /* Hide the original image as the mask handles the shape */
 }
 
+/* Main list container for the navigation links */
 #navbar-list {
   list-style: none;
   display: flex;
@@ -90,26 +96,29 @@ main {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+/* decoration of navigation links */
 #navbar-list a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
   transition: all 0.2s ease;
 }
-
+/* hover effect on navigation links */
 #navbar-list a:hover {
   color: var(--primary-blue);
 }
 
+/* pushes my login/logout buttons to the far right */
 .nav-right {
   margin-left: auto;
 }
 
+/* Hidden by default. auth.js checks if a token exists to show the correct button. */
 .nav-item-login, .nav-item-logout {
   display: none; 
 }
 
+/* login/logout buttons */
 #nav_login, #nav_logout {
   padding: 8px 24px;
   border-radius: 4px; 
@@ -119,12 +128,13 @@ main {
   font-weight: 600;
   transition: all 0.3s ease;
 }
-
+/* hover effect on login/logout buttons */
 #nav_login:hover, #nav_logout:hover {
   background: var(--primary-blue);
   color: white;
 }
 
+/* Hamburger menu button hidden by default */
 #nav_toggle {
   display: none;
   background: none;
@@ -134,7 +144,7 @@ main {
   padding: 0 20px;
 }
 
-/* Responsive Menu: Hamburger displayed on small screens. */
+/* hamburger menu for smaller screens like phones */
 @media (max-width: 768px) {
   #nav_toggle { display: block; }
   
@@ -156,37 +166,75 @@ main {
   /* Mobile contrast and layout fixes */
   .page-footer { padding: 40px 15px 20px; }
   .glass-panel { padding: 25px 20px; } /* Reduce padding on mobile */
+
+  /* shrinking the titles on mobile so everything fits nicely */
+  .page-title { font-size: 1.8rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
 }
 
-/* --- 3. Page Headers --- */
-/* Consistent blue headers with a brightness glow on hover. */
+/* --- 3. Global Navigation & Buttons --- */
+/* consistent button look for links across the whole site */
+.btn-link {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: var(--primary-blue);
+    color: white !important;
+    text-decoration: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin: 10px 5px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.btn-link:hover {
+    background-color: var(--primary-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* --- 4. Page Headers --- */
+/* bold headers with my brand color */
 h1, h2, h3 {
   transition: all 0.3s ease;
   color: var(--primary-blue);
   cursor: default;
 }
 
+/* Visual glow effect when headers are hovered */
 h1:hover, h2:hover, h3:hover {
   filter: brightness(1.7);
 }
 
+/* Centered header section for page titles */
 .page-header {
   margin-bottom: 40px;
   text-align: center;
 }
 
+/* Giant title text at the top of each page */
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
 }
 
+/* Friendly introduction text centered under the title */
 .intro-text {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 40px auto;
+  font-size: 1.25rem; /* Larger font size */
+  font-weight: 500;
+  color: var(--primary-blue); /* Branded color for emphasis */
 }
 
-/* --- 4. Global Components (Glassmorphism & Footer) --- */
+/* --- 5. Global Components (glass panel & Footer) --- */
+/* Professional glass effect for content panels */
 .glass-panel {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
@@ -196,9 +244,10 @@ h1:hover, h2:hover, h3:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     margin-bottom: 20px;
-    width: 100%; 
+    width: 100%;
 }
 
+/* site footer with the Algebra brand blue */
 .page-footer {
   background: var(--primary-blue); /* Unified Brand Blue */
   padding: 60px 20px 30px;
@@ -206,6 +255,7 @@ h1:hover, h2:hover, h3:hover {
   color: #fff; /* White text for contrast */
 }
 
+/* container for my footer columns to keep them aligned */
 .footer-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -217,6 +267,7 @@ h1:hover, h2:hover, h3:hover {
 
 .footer-col { flex: 1; min-width: 250px; }
 
+/* white logo for the footer to pop against the blue */
 .footer-logo {
     display: block;
     height: 40px;
@@ -229,75 +280,56 @@ h1:hover, h2:hover, h3:hover {
     width: 180px;
 }
 
-.footer-col h4 { 
-    color: #fff; 
-    margin-bottom: 20px; 
-    font-size: 1.2rem;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-/* Red accent under footer titles */
-.footer-col h4::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background: #ff4d4d;
+/* Headings for each column in the footer */
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
 .footer-col ul { list-style: none; padding: 0; }
 .footer-col ul li { margin-bottom: 12px; }
 
-/* 
-   We use ID-based specificity to force footer links to be white.
-   This overcomes the broader .video-bg-layout a rule.
-*/
-#main_footer a { 
-    color: rgba(255, 255, 255, 0.9) !important; 
+/* Ensuring footer links are white and simple */
+#main_footer a {
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
 }
 
-#main_footer a:hover { 
-    color: #fff !important; 
-    padding-left: 5px; /* Subtle hover slide */
+#main_footer a:hover {
+    color: #fff;
 }
-.footer-col li { margin-bottom: 10px; font-size: 0.95rem; }
-.footer-col a { text-decoration: none; color: rgba(255, 255, 255, 0.8); transition: 0.3s; }
-.footer-col a:hover { color: #fff; padding-left: 5px; }
+/* making sure the footer lists have nice spacing */
+.footer-col li { margin-bottom: 8px; font-size: 0.9rem; }
 
-.social-links { display: flex; gap: 15px; margin-top: 20px; }
-.footer-col a.social-icon { 
-  color: var(--primary-blue); 
-  width: 36px; height: 36px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.social-icon:hover { transform: translateY(-5px); background: #eee; }
-.social-icon img { 
-    width: 20px; 
-    height: 20px; 
+/* Horizontal list of social media icons */
+.social-links { display: flex; gap: 20px; margin-top: 15px; }
+.social-icon img {
+    width: 24px;
+    height: 24px;
     object-fit: contain;
-    /* This filter converts the white PNG to our brand blue (#002d72) */
-    filter: brightness(0) saturate(100%) invert(11%) sepia(85%) saturate(3048%) hue-rotate(205deg) brightness(97%) contrast(105%);
+    /* Keeps icons white */
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s ease;
 }
+/* making social icons grow a bit when hovered */
+.social-icon:hover img { transform: scale(1.1); }
 
+/* Tiny copyright and credits at the very bottom */
 .footer-bottom {
   text-align: center; margin-top: 50px; padding-top: 25px;
   border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);
 }
 
-/* --- 5. Shared Form Elements --- */
+/* --- 6. Shared Form Elements --- */
+/* Spacing between different form fields */
 .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
 
+/* Labels for the user input fields */
 .form-label {
   display: block;
   font-weight: 600;
@@ -305,6 +337,7 @@ h1:hover, h2:hover, h3:hover {
   color: inherit;
 }
 
+/* Form Inputs: Styled for a clean and consistent appearance. */
 .form-input, .form-textarea {
   width: 100%;
   padding: 12px;
@@ -315,21 +348,25 @@ h1:hover, h2:hover, h3:hover {
   transition: border-color 0.2s;
 }
 
+/* highlights the input box when I click into it */
 .form-input:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--primary-blue);
 }
 
+/* Textarea: Given a minimum height and vertical resizing for messages. */
 .form-textarea {
   min-height: 120px;
   resize: vertical;
 }
 
+/* Checkbox: Styled for bit of extra spacing and a pointer cursor. */
 .form-checkbox {
   margin-right: 10px;
   cursor: pointer;
 }
 
+/* Big colorful submit button for forms */
 .submit-button {
   width: 100%;
   padding: 14px;
@@ -343,12 +380,13 @@ h1:hover, h2:hover, h3:hover {
   transition: background-color 0.2s;
 }
 
+/* Submit Button Hover: Darkens the button when the mouse is over it. */
 .submit-button:hover {
   background-color: var(--primary-blue-hover);
 }
 
-/* --- 6. Global Layouts & Contrast Utilities --- */
-/* Background Video (LO4 requirement): Covers the whole screen. */
+/* --- 7. Global Layouts & Contrast Utilities --- */
+/* background video for the splash pages (LO4 feature) */
 #bg-video {
   position: fixed;
   right: 0;
@@ -358,7 +396,7 @@ h1:hover, h2:hover, h3:hover {
   z-index: -2;
   object-fit: cover;
 }
-
+/* adds a dark layer over the video so my text is easier to see */
 .video-overlay {
   position: fixed;
   top: 0;
@@ -369,40 +407,20 @@ h1:hover, h2:hover, h3:hover {
   z-index: -1;
 }
 
-/* Layout for pages with background video (Home/Login) */
+/* special layout settings for my pages with video backgrounds */
 .video-bg-layout { color: var(--text-dark); }
+
+/* Navbar override: Ensures the navbar remains readable over the video. */
 .video-bg-layout #navbar { background: rgba(255, 255, 255, 0.95); }
-.video-bg-layout a:not(#navbar a) { color: var(--primary-blue); } 
 
-/* Ensure footer links remain white even in video-bg-layout */
-.video-bg-layout .page-footer p,
-.video-bg-layout .page-footer h4,
-.video-bg-layout .page-footer a { 
-    color: #fff; 
-}
-.video-bg-layout .page-footer a { color: rgba(255,255,255,0.8); }
-.video-bg-layout .page-footer a:hover { color: #fff; }
+/* Link color override: Styles links in the content but excludes the navbar. */
+.video-bg-layout main a { color: var(--primary-blue); } 
 
-.video-bg-layout h1, .video-bg-layout h2, .video-bg-layout h3 { color: var(--primary-blue); }
-.video-bg-layout .glass-panel {
-    background: rgba(255, 255, 255, 0.85); 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); 
-}
-/* Unified footer handles the contrast itself now */
-
-/* Layout for sub-pages with an image background */
+/* subtle abstract background for my sub-pages */
 .image-bg-layout {
-    background: url('../img/abstract_bg.png') no-repeat center center fixed;
+    background-image: url('../img/abstract_bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
     background-size: cover;
-}
-.image-bg-layout::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.6); 
-    z-index: -1;
 }

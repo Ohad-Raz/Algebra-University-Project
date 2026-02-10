@@ -22,6 +22,7 @@
   cursor: pointer;
 }
 /* --- Split Layout --- */
+/* curriculum layout helps wrap things on tablets or smaller laptop screens using flexbox */
 .curriculum-layout {
     display: flex;
     flex-wrap: wrap; /* Allows wrapping on medium screens */
@@ -30,8 +31,7 @@
 }
 
 /* Right Column: Table */
-/* This section is the sidebar on the right where the selected courses are listed. */
-/* I use 'position: sticky' so it stays visible even when you scroll through a long list of courses. */
+/* this is the sidebar where all the courses I pick from the list will show up (it's sticky so I can always see it) */
 .curriculum-selected-section {
     flex: 1;
     min-width: 300px;
@@ -46,6 +46,7 @@
 }
 
 /* Search Input */
+/* search bar to quickly filter through the courses by name */
 .search-input {
     width: 100%;
     padding: 12px;
@@ -60,6 +61,7 @@
     color: red;
 }
 /* --- Table Styling --- */
+/* table layout for the final list of my added courses */
 #selected_courses_table {
     width: 100%;
     border-collapse: collapse;
@@ -67,6 +69,7 @@
     background: white;
 }
 
+/* simple padding and borders to make the table cells easy to read */
 #selected_courses_table th, 
 #selected_courses_table td {
     padding: 10px;
@@ -87,6 +90,7 @@
 }
 
 /* Red delete button */
+/* red delete button to remove courses I don't want anymore */
 .delete-btn {
     background-color: #ff4444;
     color: white;
@@ -97,21 +101,13 @@
 }
 .delete-btn:hover { background-color: #cc0000; }
 
-/* Blue add button */
+/* general button styles for adding or removing from the curriculum */
 .add-btn {
-    background-color: var(--primary-blue);
-    color: white;
-    border: none;
     padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: background-color 0.2s;
+    margin: 0;
 }
-.add-btn:hover { background-color: var(--primary-blue-hover); }
 
-/* media queries */
-/* On mobile, I switch the layout to a single column to ensure everything stays readable. */
+/* on mobile the sidebar and grid stack on top of each other so everything fits */
 @media (max-width: 600px) {
     .curriculum-layout {
         flex-direction: column-reverse; 

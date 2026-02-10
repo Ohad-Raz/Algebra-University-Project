@@ -3,14 +3,13 @@
    Specific styles for the contact form and interactive map.
 */
 
-/* Specific width for the contact form */
+/* keeping the contact form centered and readable on larger screens */
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Map: I use an iframe for the Google Map and give it a subtle shadow and border. */
-/* This block handles the presentation of the location section. */
+/* styling the container for my google map with a shadow and fade-in effect */
 .map-container {
   margin-top: 40px;
   border-radius: var(--radius);
@@ -20,17 +19,20 @@
   animation: fadeIn 1.2s ease-in-out;
 }
 
+/* removing default gaps below the iframe */
 .map-container iframe {
-  display: block; /* Removes any default spacing below the iframe */
+  display: block;
 }
 
 /* --- Contact Page Enhancements --- */
+/* using flexbox to put the info and the form side-by-side */
 .contact-layout {
     display: flex;
     gap: 40px;
     align-items: flex-start;
 }
 
+/* both sides take up an equal part of the row */
 .contact-info-section {
     flex: 1;
 }
@@ -39,6 +41,7 @@
     flex: 1;
 }
 
+/* styling the image of our building above the contact info */
 .reach-us-image {
     margin-bottom: 20px;
 }
@@ -55,6 +58,7 @@
     font-weight: 500;
 }
 
+/* on mobile I stack the info and form vertically */
 @media (max-width: 768px) {
     .contact-layout {
         flex-direction: column;
