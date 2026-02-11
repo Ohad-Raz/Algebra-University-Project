@@ -36,7 +36,10 @@ async function loadCourse() {
         <p>ECTS: ${c.ects}, Hours: ${c.sati}</p>
         <p>Lectures: ${c.predavanja}, Exercises: ${c.vjezbe}</p>
         <p>Semester: ${c.semestar}, Type: ${c.tip}</p>
-    `;
+        <div style="margin-top: 20px;">
+            <a href="curriculum.html" class="btn-link">Return to Curriculum</a>
+        </div>
+    `;//added return to curriculum button for navigation-good for mobile
     // Appending the details into the main container on the page.
     document.getElementById("course_container").appendChild(courseDetails);
   } catch (error) {

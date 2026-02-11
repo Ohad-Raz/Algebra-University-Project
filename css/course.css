@@ -42,7 +42,7 @@
     position: sticky;
     top: 80px; 
     max-height: 70vh; 
-    overflow-y: auto;
+    overflow-y: auto;/*gives me the scroll on the Y axis on the smaller screens*/
 }
 
 /* Search Input */
@@ -99,6 +99,72 @@
     cursor: pointer;
     border-radius: 3px;
 }
+
+
+/* Responsive layout for smaller tablets and phones */
+@media (max-width: 700px) {
+    /* Stack layout vertically */
+    .curriculum-layout {
+        flex-direction: column-reverse; 
+        align-items: center;
+    }
+
+    /* Fix card cut-off: Make them flexible instead of fixed 300px */
+    .course-item {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    /* Table container adjustments */
+    .curriculum-selected-section {
+        min-width: 100%; 
+        padding: 5px; 
+        max-height: 45vh; 
+        top: 50px; /*smaller distance from top*/
+    }
+
+    /* Table sizing */
+    #selected_courses_table {
+        min-width: auto; 
+        margin: 0 auto;
+    }
+    
+    #selected_courses_table th, 
+    #selected_courses_table td {
+        text-align: center;
+    }
+
+    /* Column width priorities */
+    #selected_courses_table th:first-child,
+    #selected_courses_table td:first-child {
+        text-align: left;
+        width: 40%;
+    }
+}
+
+/* Extra small screens: typography and spacing adjustments */
+@media (max-width: 580px) {
+    /* Smaller table text */
+    #selected_courses_table {
+        font-size: 11px;
+    }
+    
+    /* Tighter padding */
+    #selected_courses_table th, 
+    #selected_courses_table td {
+        padding: 4px 2px;
+    }
+
+    /* Smaller delete button */
+    .delete-btn {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+}
+
+
+
 .delete-btn:hover { background-color: #cc0000; }
 
 /* general button styles for adding or removing from the curriculum */
@@ -107,14 +173,5 @@
     margin: 0;
 }
 
-/* on mobile the sidebar and grid stack on top of each other so everything fits */
-@media (max-width: 600px) {
-    .curriculum-layout {
-        flex-direction: column-reverse; 
-    }
-    .curriculum-selected-section {
-    max-height: 45vh; 
-    padding: 10px;
-    top:0px;
-}
-}
+
+ 

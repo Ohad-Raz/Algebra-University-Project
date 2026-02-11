@@ -27,7 +27,7 @@ async function initCurriculum() {
         
         if (!response.ok) {
             // Handle specific case where token might have expired (401 Unauthorized)
-            if (response.status === 401) {
+            if (response.status === 401) {//Unauthorized
                 localStorage.removeItem("token");
                 window.location.href = "login.html";
                 return;
@@ -36,7 +36,7 @@ async function initCurriculum() {
         }
 
         const data = await response.json();
-        allCourses = data.data; // Saving the result to our global array
+        allCourses = data.data; // Saving the result to my global array of all courses  
         
         // Render initial cards and populate search suggestions.
         renderCourses(allCourses);
@@ -59,11 +59,11 @@ initCurriculum();
 const searchInput = document.getElementById("course_search");
 if (searchInput) {
     searchInput.addEventListener("input", (e) => {
-        const term = e.target.value.toLowerCase();
+        const term = e.target.value.toLowerCase();//on every keystroke, the search term is updated
         
         const filtered = allCourses.filter(course => 
             course.course.toLowerCase().includes(term)
-        );
+        );//filters the courses based on the search term
         
         // Re-render the course grid with filtered items.
         renderCourses(filtered);
@@ -95,7 +95,7 @@ function renderCourses(courses) {
         item.addEventListener("click", (e) => {
             if (e.target.classList.contains("add-btn")) return;
             window.location.href = `course.html?id=${c.id}`;
-        });
+        });//passes the id of the course to the details page via the url
         
         // Attach listener to 'Add' button to update selection list.
         const addBtn = item.querySelector(".add-btn");
@@ -122,7 +122,7 @@ function addToSelection(course,event) {
        msgSpan.textContent="";
     }
 
-    // 2. Add to array
+    // 2. Add to array of selected courses
     selectedCourses.push(course);
 
     // 3. Update Table
@@ -141,6 +141,7 @@ function renderTable() {
     const totalEctsEl = document.getElementById("total_ects");
     const totalHoursEl = document.getElementById("total_hours");
 
+    // clearing the table before adding the new rows so i don't get duplicates
     tbody.innerHTML = "";
     
     let sumEcts = 0;
@@ -169,11 +170,11 @@ function renderTable() {
 }
 function populateSuggestions(courses) {
     const datalist = document.getElementById("course_options");
-    datalist.innerHTML = ""; // Clear
+    datalist.innerHTML = ""; // Clear suggestions
     
     courses.forEach(c => {
         const option = document.createElement("option");
         option.value = c.course; // This is what the user sees in the dropdown
         datalist.appendChild(option);
-    });
+    });// browser will automatically filter the courses based on the search term
 }
