@@ -5,7 +5,7 @@
 */
 
 /* --- 1. General Typography & Variables --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
   --primary-blue: #002d72; /* my main brand color for Algebra */
@@ -14,16 +14,19 @@
   --text-dark: #333;
   --text-light: #ffffff;
   --radius: 8px; /* consistent corner rounding for buttons and cards */
-  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Basic reset for all elements to remove default browser spacing */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 /* Setting the default font and background for the entire site */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.6;
@@ -33,15 +36,21 @@ body {
 main {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 20px;
-  min-height: 80vh; 
+  padding: 35px 20px;
+  min-height: 80vh;
   animation: fadeIn 0.8s ease-in-out;
 }
 
 /* Animation to make the page content fade in smoothly on load */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- 2. Navigation --- */
@@ -59,32 +68,35 @@ main {
 }
 
 .nav-logo a {
-    display: block;
-    height: 50px; /* Increased from 40px */
-    width: 220px; /* Increased from 180px */
-    margin-left: -40px; /* Push it slightly to the left */
-    transition: transform 0.3s ease, filter 0.3s ease;
+  display: block;
+  height: 50px; /* Increased from 40px */
+  width: 220px; /* Increased from 180px */
+  margin-left: -40px; /* Push it slightly to the left */
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .nav-logo img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
-
 @media (max-width: 480px) {
-    .nav-logo a { width: 140px; } /* Smaller logo on mobile */
-    #navbar-list a { font-size: 15px; } /* Smaller font size on mobile */
+  .nav-logo a {
+    width: 140px;
+  } /* Smaller logo on mobile */
+  #navbar-list a {
+    font-size: 15px;
+  } /* Smaller font size on mobile */
 }
 
 /* Making the logo grow slightly when hovered */
 .nav-logo a:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
+  transform: scale(1.05);
+  filter: brightness(1.2);
 }
-
-
 
 /* Main list container for the navigation links */
 #navbar-list {
@@ -116,14 +128,16 @@ main {
 }
 
 /* Hidden by default. auth.js checks if a token exists to show the correct button. */
-.nav-item-login, .nav-item-logout {
-  display: none; 
+.nav-item-login,
+.nav-item-logout {
+  display: none;
 }
 
 /* login/logout buttons */
-#nav_login, #nav_logout {
+#nav_login,
+#nav_logout {
   padding: 8px 24px;
-  border-radius: 4px; 
+  border-radius: 4px;
   border: 2px solid var(--primary-blue);
   background: transparent;
   color: var(--primary-blue);
@@ -131,7 +145,8 @@ main {
   transition: all 0.3s ease;
 }
 /* hover effect on login/logout buttons */
-#nav_login:hover, #nav_logout:hover {
+#nav_login:hover,
+#nav_logout:hover {
   background: var(--primary-blue);
   color: white;
 }
@@ -148,8 +163,10 @@ main {
 
 /* hamburger menu for smaller screens like phones */
 @media (max-width: 768px) {
-  #nav_toggle { display: block; }
-  
+  #nav_toggle {
+    display: block;
+  }
+
   #navbar-list {
     display: none;
     position: absolute;
@@ -162,63 +179,81 @@ main {
     box-shadow: var(--shadow);
   }
 
-  #navbar.open #navbar-list { display: flex; }
-  .nav-right { margin-left: 0; margin-top: 10px; }
+  #navbar.open #navbar-list {
+    display: flex;
+  }
+  .nav-right {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 
   /* Mobile contrast and layout fixes */
-  .page-footer { padding: 40px 15px 20px; }
-  
+  .page-footer {
+    padding: 40px 15px 20px;
+  }
+
   /* Make the glass panel full width on mobile to use every pixel */
-  .glass-panel { 
-    padding: 20px 15px; 
+  .glass-panel {
+    padding: 20px 15px;
     border-radius: 0; /* Remove corners to look like a full page */
-    margin: 0; 
+    margin: 0;
     border-left: none;
     border-right: none;
-  } 
-
+  }
 
   /* shrinking the titles on mobile so everything fits nicely */
-  .page-title { font-size: 1.8rem; }
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.3rem; }
+  .page-title {
+    font-size: 1.8rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
 }
 
 /* --- 3. Global Navigation & Buttons --- */
 /* consistent button look for links across the whole site */
 .btn-link {
-    display: inline-block;
-    padding: 10px 24px;
-    background-color: var(--primary-blue);
-    color: white !important;
-    text-decoration: none;
-    border-radius: var(--radius);
-    font-weight: 600;
-    transition: all 0.2s ease;
-    margin: 10px 5px;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.95rem;
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: var(--primary-blue);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin: 10px 5px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
 }
 
 .btn-link:hover {
-    background-color: var(--primary-blue-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background-color: var(--primary-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* --- 4. Page Headers --- */
 /* bold headers with my brand color */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   transition: all 0.3s ease;
   color: var(--primary-blue);
   cursor: default;
 }
 
 /* Visual glow effect when headers are hovered */
-h1:hover, h2:hover, h3:hover {
+h1:hover,
+h2:hover,
+h3:hover {
   filter: brightness(1.7);
 }
 
@@ -247,13 +282,13 @@ h1:hover, h2:hover, h3:hover {
 /* --- 5. Global Components (glass panel & Footer) --- */
 /* Clean glass effect for content panels */
 .glass-panel {
-    background: rgba(255, 255, 255, 0.84);
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-bottom: 20px;
-    width: auto; /* Let it fill the container naturally */
+  background: rgba(255, 255, 255, 0.84);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+  width: auto; /* Let it fill the container naturally */
 }
 
 /* site footer with the Algebra brand blue */
@@ -274,62 +309,85 @@ h1:hover, h2:hover, h3:hover {
   justify-content: space-between;
 }
 
-.footer-col { flex: 1; min-width: 250px; }
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+}
 
 /* simple logo styling for the footer */
 .footer-logo {
-    display: block;
-    height: 40px;
-    width: 180px;
-    margin-bottom: 25px;
+  display: block;
+  height: 40px;
+  width: 180px;
+  margin-bottom: 25px;
 }
 
 .footer-logo img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;/*keeps the logo in the same shape*/
+  height: 100%;
+  width: 100%;
+  object-fit: contain; /*keeps the logo in the same shape*/
 }
 
 /* Headings for each column in the footer */
 .footer-col h4 {
-    color: #fff;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
 }
 
-.footer-col ul { list-style: none; padding: 0; }
-.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col ul li {
+  margin-bottom: 12px;
+}
 
 /* Ensuring footer links are white and simple */
 #main_footer a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    display: inline-block; /* Needed for transform to work! */
-    transition: color 0.2s ease, transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  display: inline-block; /* Needed for transform to work! */
+  transition:
+    color 0.2s ease,
+    transform 0.3s ease;
 }
 
 #main_footer a:hover {
-    color: #fff;
-    transform: scale(1.07);  
+  color: #fff;
+  transform: scale(1.07);
 }
 /* making sure the footer lists have nice spacing */
-.footer-col li { margin-bottom: 8px; font-size: 0.9rem; }
+.footer-col li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
 
 /* Horizontal list of social media icons */
-.social-links { display: flex; gap: 20px; margin-top: 15px; }
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
 .social-icon img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    transition: transform 0.2s ease;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
 }
 /* making social icons grow a bit when hovered */
-.social-icon:hover img { transform: scale(1.1); }
+.social-icon:hover img {
+  transform: scale(1.1);
+}
 
 /* Tiny copyright and credits at the very bottom */
 .footer-bottom {
-  text-align: center; margin-top: 50px; padding-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* --- 6. Shared Form Elements --- */
@@ -349,7 +407,8 @@ h1:hover, h2:hover, h3:hover {
 }
 
 /* Form Inputs: Styled for a clean and consistent appearance. */
-.form-input, .form-textarea {
+.form-input,
+.form-textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -360,7 +419,8 @@ h1:hover, h2:hover, h3:hover {
 }
 
 /* highlights the input box when I click into it */
-.form-input:focus, .form-textarea:focus {
+.form-input:focus,
+.form-textarea:focus {
   outline: none;
   border-color: var(--primary-blue);
 }
@@ -414,24 +474,30 @@ h1:hover, h2:hover, h3:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.65); 
+  background: rgba(0, 0, 0, 0.65);
   z-index: -1;
 }
 
 /* special layout settings for my pages with video backgrounds */
-.video-bg-layout { color: var(--text-dark); }
+.video-bg-layout {
+  color: var(--text-dark);
+}
 
 /* Navbar override: Ensures the navbar remains readable over the video. */
-.video-bg-layout #navbar { background: rgba(255, 255, 255, 0.95); }
+.video-bg-layout #navbar {
+  background: rgba(255, 255, 255, 0.95);
+}
 
 /* Link color override: Styles links in the content but excludes the navbar. */
-.video-bg-layout main a { color: var(--primary-blue); } 
+.video-bg-layout main a {
+  color: var(--primary-blue);
+}
 
 /* subtle abstract background for my sub-pages */
 .image-bg-layout {
-    background-image: url('../img/abstract_bg.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url("../img/abstract_bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }

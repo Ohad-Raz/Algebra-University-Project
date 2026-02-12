@@ -6,7 +6,7 @@
   margin-top: 20px;
 }
 
-/* individual image tiles that won't shrink too much; they wrap automatically when the screen gets narrow */
+/* individual image tiles that won't shrink too much, they wrap automatically when the screen gets narrow */
 .gallery-item {
   flex: 1 1 250px; 
   height: 200px;
