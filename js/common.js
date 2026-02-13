@@ -27,10 +27,10 @@ function updateNavigation() {
 updateNavigation();
 
 // Logout Logic
-const logoutBtn = document.getElementById("nav_logout");
+const logoutBtn = document.getElementById("nav_logout"); //selecting the logout link
 if (logoutBtn) {
   logoutBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevent the default link behavior so the page doesn't refresh
     localStorage.removeItem("token");
 
     // Path handling: If in the 'pages' folder, redirect to 'login.html' here.
@@ -49,12 +49,12 @@ if (logoutBtn) {
 const navToggle = document.getElementById("nav_toggle");
 const navbar = document.getElementById("navbar");
 
-if (navToggle && navbar) {
-  //checking if the nav toggle and navbar elements exist
-  navToggle.addEventListener("click", () => {
-    navbar.classList.toggle("open");
-  });
-}
+//if (navToggle && navbar) {
+//checking if the nav toggle and navbar elements exist before adding the event listener-no need!
+navToggle.addEventListener("click", () => {
+  navbar.classList.toggle("open"); //toggle the open class on the navbar to show/hide the menu
+});
+//}
 
 // Accordion Functionality (used for History)
 // Selecting all header elements for the accordion. When one is clicked,
@@ -62,7 +62,7 @@ if (navToggle && navbar) {
 const accordionHeaders = document.querySelectorAll(".accordion-header"); //selecting all header elements for the accordion
 accordionHeaders.forEach((header) => {
   header.addEventListener("click", () => {
-    const item = header.parentElement; //getting the parent element of the header
+    const item = header.parentElement; //getting the parent element of the header (accordion-item)
     const isActive = item.classList.contains("active"); //checking if the item is active
 
     // Clear all other active items first so only one stays open at a time.

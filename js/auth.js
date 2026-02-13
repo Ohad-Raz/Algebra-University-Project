@@ -1,27 +1,30 @@
 /**
  * auth.js
- * Authentication state management and form validation for 
+ * Authentication state management and form validation for
  * Algebra University project.
  */
 
 // --- Initialization & Validation ---
 
-// Handling the Register form submission. 
+// Handling the Register form submission.
 // Username and password values are extracted and sent to the API.
 const registerForm = document.getElementById("register_form");
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevent the default form submission behavior so the page doesn't refresh
 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value;
 
     // Sending request with user credentials.
-    const response = await fetch("https://www.fulek.com/data/api/user/register", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://www.fulek.com/data/api/user/register",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+      },
+    );
 
     const data = await response.json();
 
@@ -31,7 +34,8 @@ if (registerForm) {
     } else {
       // Show the specific error message returned by the server.
       const msg = document.getElementById("register_message");
-      if (msg) msg.textContent = data.errorMessages?.[0] ?? "Registration failed";
+      if (msg)
+        msg.textContent = data.errorMessages?.[0] ?? "Registration failed";
     }
   });
 }
@@ -60,7 +64,7 @@ if (loginForm) {
       window.location.href = "curriculum.html";
     } else {
       const msg = document.getElementById("login_message");
-      if (msg) msg.textContent = data.errorMessages?.[0] ?? "Login failed";//elvies operator if error message is null or undefined, it will display "Login failed"
+      if (msg) msg.textContent = data.errorMessages?.[0] ?? "Login failed"; //elvies operator if error message is null or undefined, it will display "Login failed"
     }
   });
 }

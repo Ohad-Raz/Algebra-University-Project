@@ -168,13 +168,13 @@ main {
   }
 
   #navbar-list {
-    display: none;
+    display: none; /*hide the navbar list for mobile*/
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
-    flex-direction: column;
+    background-color: var(--bg-light);
+    flex-direction: column; /*stack the links vertically*/
     padding: 20px;
     box-shadow: var(--shadow);
   }
