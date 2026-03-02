@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curriculum - Algebra University</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/curriculum.css" />
+    <!-- Feature Scripts -->
+    <script src="../js/curriculum.js" defer></script>
+    <!-- Core Scripts -->
+    <script src="../js/common.js" defer></script>
+  </head>
+  <body class="image-bg-layout">
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="../img/Algebra-logo-gradient.png" alt="Algebra University Logo">
+        </a>
+      </div>
+      <button id="nav_toggle">☰</button>
+      <ul id="navbar-list">
+        <li>
+          <a href="../index.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="news.html">News</a>
+        </li>
+        <li>
+          <a href="curriculum.html">Curriculum</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Curriculum Explorer -->
+    <main>
+      <div class="glass-panel curriculum-layout">
+    <!-- LEFT COLUMN -->
+    <div class="curriculum-search-section">
+      <header class="page-header">
+        <h1 class="page-title">Curriculum</h1>
+      </header>
+      <!-- search input: list=course_options links to datalist below, JS fills the options for autocomplete -->
+      <input type="text" id="course_search" list="course_options" placeholder="Search for courses..." class="search-input" autocomplete="off">
+      <datalist id="course_options"></datalist>
+        <div id="courses_container"></div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div id="curriculum_selected" class="curriculum-selected-section">
+        <h2>My Curriculum</h2>
+        <table id="selected_courses_table">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>ECTS</th>
+                    <th>Hours</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="selected_body"></tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td id="total_ects">0</td>
+                    <td id="total_hours">0</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+      </div>
+    </main>
+
+    <!-- Program Selector -->
+
+    <!-- Course List -->
+    <footer id="main_footer" class="page-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Algebra University</h4>
+          <p>Practical education focused on modern technologies, innovation, and skills required by today's job market.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/sveucilistealgebrabernays/" class="social-icon" target="_blank">
+              <img src="../img/fb-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/algebrabernaysuniversity/" class="social-icon" target="_blank">
+              <img src="../img/ig-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/school/algebra-university/" class="social-icon" target="_blank">
+              <img src="../img/li-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.youtube.com/@SveucilisteAlgebraBernays/" class="social-icon" target="_blank">
+              <img src="../img/yt-icon.png" alt="YouTube">
+            </a>
+            <a href="https://www.tiktok.com/@algebrabernaysuniversity?lang=en" class="social-icon" target="_blank">
+              <img src="../img/tt-icon.png" alt="TikTok">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="news.html">Latest News</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>📍 Gradišćanska ul. 24, 10000 Zagreb</li>
+            <li>📞 +385 1 2222 182</li>
+            <li>✉️ info@algebra.hr</li>
+            <li>⏰ Mon - Fri: 08:00 - 20:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Algebra University. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+/* 
+   home.css
+   Specific styles for the Home page unique sections.
+*/
+
+/* big main banner image at the top of my home page */
+.home-main-image {
+  width: 100%;
+  max-height: 290px; /* Constrain height to prevent pushing content too far down */
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* making sure the photo fills the container without looking stretched */
+.home-main-image img {
+  width: 100%;
+  height: 290px; /* Match max-height */
+  display: block;
+  object-fit: cover; /* Crop nicely instead of stretching */
+  object-position: center;
+}
+
+/* Button links: Styled to look like professional buttons with a hover effect. */
+/* Button styles moved to global style.css */
+
+/* styling the list for the "Why Choose Algebra" section */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* adding checkmarks to each of my feature items */
+.feature-item {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.feature-item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+/* section titles matching my brand color */
+.section-title {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+}
+
+/* Intro paragraphs for sections */
+.section-text {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: inherit;
+}
+/* shrinking the main banner on phones so it doesn't take up too much room */
+@media (max-width: 480px) {
+  .home-main-image,
+  .home-main-image img {
+    height: 200px;
+    max-height: 200px;
+  }
+}

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Algebra University</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/contact.css" />
+    <!-- Core Scripts -->
+    <script src="../js/common.js" defer></script>
+  </head>
+  <body class="image-bg-layout">
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img
+            src="../img/Algebra-logo-gradient.png"
+            alt="Algebra University Logo"
+          />
+        </a>
+      </div>
+      <button id="nav_toggle">☰</button>
+      <ul id="navbar-list">
+        <li>
+          <a href="../index.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="news.html">News</a>
+        </li>
+        <li>
+          <a href="curriculum.html">Curriculum</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Contact Form Section -->
+    <!-- Contact Information -->
+    <main id="contact_main">
+      <div class="glass-panel contact-layout">
+        <div class="contact-info-section">
+          <header class="page-header">
+            <h1 class="page-title">Contact Us</h1>
+          </header>
+          <div class="reach-us-image">
+            <img
+              src="../img/algebra_building.jpg"
+              alt="Algebra University Building"
+            />
+          </div>
+          <div class="contact-details">
+            <p>📍 Gradišćanska ul. 24, 10000 Zagreb</p>
+            <p>📞 +385 1 2222 182</p>
+            <p>✉️ info@algebra.hr</p>
+          </div>
+        </div>
+        <div class="contact-form-section">
+          <form
+            action="https://www.fulek.com/mvc/supit/project-contact-form"
+            method="post"
+            id="contact_form"
+            class="contact-form"
+          >
+            <div class="form-group">
+              <label for="FullName" class="form-label">FullName:</label>
+              <input
+                type="text"
+                id="FullName"
+                name="FullName"
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="Email" class="form-label">Email:</label>
+              <input type="email" id="Email" name="Email" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label for="ReceiveNewsletter" class="form-label checkbox-label">
+                <input
+                  type="checkbox"
+                  id="ReceiveNewsletter"
+                  name="ReceiveNewsletter"
+                  class="form-checkbox"
+                />
+                ReceiveNewsletter:
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="Message" class="form-label">Message:</label>
+              <textarea
+                id="Message"
+                name="Message"
+                class="form-textarea"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Importance" class="form-label">Importance:</label>
+              <select id="Importance" name="Importance" class="form-input">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="submit-button">Submit Form</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="map-container">
+        <!-- map iframe: fullscreen option, lazy load so page loads faster -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.7890740801865!2d15.933391215568!3d45.81134267910629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d6bdc39063c3%3A0x6b5e022da05b0c95!2sAlgebra%20University!5e0!3m2!1sen!2shr!4v1644420000000!5m2!1sen!2shr"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </main>
+
+    <footer id="main_footer" class="page-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img
+              src="../img/Algebra-logo-gradient.png"
+              alt="Algebra University"
+            />
+          </div>
+          <p>
+            Practical education focused on modern technologies, innovation, and
+            skills required by today's job market.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/sveucilistealgebrabernays/"
+              class="social-icon"
+              target="_blank"
+            >
+              <img src="../img/fb-icon.png" alt="Facebook" />
+            </a>
+            <a
+              href="https://www.instagram.com/algebrabernaysuniversity/"
+              class="social-icon"
+              target="_blank"
+            >
+              <img src="../img/ig-icon.png" alt="Instagram" />
+            </a>
+            <a
+              href="https://www.linkedin.com/school/algebra-university/"
+              class="social-icon"
+              target="_blank"
+            >
+              <img src="../img/li-icon.png" alt="LinkedIn" />
+            </a>
+            <a
+              href="https://www.youtube.com/@SveucilisteAlgebraBernays/"
+              class="social-icon"
+              target="_blank"
+            >
+              <img src="../img/yt-icon.png" alt="YouTube" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@algebrabernaysuniversity?lang=en"
+              class="social-icon"
+              target="_blank"
+            >
+              <img src="../img/tt-icon.png" alt="TikTok" />
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="news.html">Latest News</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>📍 Gradišćanska ul. 24, 10000 Zagreb</li>
+            <li>📞 +385 1 2222 182</li>
+            <li>✉️ info@algebra.hr</li>
+            <li>⏰ Mon - Fri: 08:00 - 20:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Algebra University. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

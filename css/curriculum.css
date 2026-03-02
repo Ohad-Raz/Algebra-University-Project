@@ -1,0 +1,177 @@
+/* This class defines the looks of the individual course cards in the curriculum grid. */
+.course-item {
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+.course-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+/* --- Split Layout --- */
+/* curriculum layout helps wrap things on tablets or smaller laptop screens using flexbox */
+.curriculum-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on medium screens */
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Right Column: Table */
+/* this is the sidebar where all the courses I pick from the list will show up (it's sticky so I can always see it) */
+.curriculum-selected-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    position: sticky;
+    top: 80px; 
+    max-height: 70vh; 
+    overflow-y: auto;/*gives me the scroll on the Y axis on the smaller screens*/
+}
+
+/* Search Input */
+/* search bar to quickly filter through the courses by name */
+.search-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.curriculum_message{
+    color: red;
+}
+/* --- Table Styling --- */
+/* table layout for the final list of my added courses */
+#selected_courses_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+}
+
+/* simple padding and borders to make the table cells easy to read */
+#selected_courses_table th, 
+#selected_courses_table td {
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: left;
+    font-size: 14px;
+}
+
+#selected_courses_table th {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* Make the total row stand out */
+#selected_courses_table tfoot td {
+    font-weight: bold;
+    background-color: #e8e8e8;
+}
+
+/* Red delete button */
+/* red delete button to remove courses I don't want anymore */
+.delete-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
+/* Responsive layout for smaller tablets and phones */
+@media (max-width: 700px) {
+    /* Stack layout vertically */
+    .curriculum-layout {
+        flex-direction: column-reverse; 
+        align-items: center;
+    }
+
+    /* Fix card cut-off: Make them flexible instead of fixed 300px */
+    .course-item {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    /* Table container adjustments */
+    .curriculum-selected-section {
+        min-width: 100%; 
+        padding: 5px; 
+        max-height: 45vh; 
+        top: 50px; /*smaller distance from top*/
+    }
+
+    /* Table sizing */
+    #selected_courses_table {
+        min-width: auto; 
+        margin: 0 auto;
+    }
+    
+    #selected_courses_table th, 
+    #selected_courses_table td {
+        text-align: center;
+    }
+
+    /* Column width priorities */
+    #selected_courses_table th:first-child,
+    #selected_courses_table td:first-child {
+        text-align: left;
+        width: 40%;
+    }
+}
+
+/* Extra small screens: typography and spacing adjustments */
+@media (max-width: 580px) {
+    /* Smaller table text */
+    #selected_courses_table {
+        font-size: 11px;
+    }
+    
+    /* Tighter padding */
+    #selected_courses_table th, 
+    #selected_courses_table td {
+        padding: 4px 2px;
+    }
+
+    /* Smaller delete button */
+    .delete-btn {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+}
+
+
+
+.delete-btn:hover { background-color: #cc0000; }
+
+/* general button styles for adding or removing from the curriculum */
+.add-btn {
+    padding: 8px 16px;
+    margin: 0;
+}
+
+
+ 

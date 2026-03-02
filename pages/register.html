@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Algebra University</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
+    <!-- Feature Scripts -->
+    <script src="../js/auth.js" defer></script>
+    <!-- Core Scripts -->
+    <script src="../js/common.js" defer></script>
+  </head>
+  <body class="video-bg-layout">
+    <!-- Background Video (LO4) -->
+    <video autoplay muted loop id="bg-video">
+      <source src="../video/typingOnlaptop.mp4" type="video/mp4" />
+    </video>
+    <div class="video-overlay"></div>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="../img/Algebra-logo-gradient.png" alt="Algebra University Logo">
+        </a>
+      </div>
+      <button id="nav_toggle">☰</button>
+      <ul id="navbar-list">
+        <li>
+          <a href="../index.html">Home</a>
+        </li>
+        <li>
+          <a href="about.html">About</a>
+        </li>
+        <li>
+          <a href="news.html">News</a>
+        </li>
+        <li>
+          <a href="curriculum.html">Curriculum</a>
+        </li>
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+        <li class="nav-right nav-item-login">
+          <a id="nav_login" href="login.html">Login</a>
+        </li>
+        <li class="nav-right nav-item-logout">
+          <a id="nav_logout" href="#">Logout</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Registration Form -->
+    <main id="register_main">
+      <div class="glass-panel">
+      <header id="main_header" class="page-header">
+        <h1 class="page-title">Register</h1>
+      </header>
+
+      <form
+        action="https://www.fulek.com/data/api/user/register"
+        method="post"
+        id="register_form"
+        class="register-form"
+      >
+        <div class="form-group">
+          <label for="username" class="form-label">Username:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-button">Register</button>
+        </div>
+      </form>
+      <p>Already have an account? <a href="/pages/login.html">Login</a></p>
+      <!-- Feedback Area -->
+      <div id="register_message" class="message"></div>
+      </div>
+    </main>
+    <footer id="main_footer" class="page-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <img src="../img/Algebra-logo-gradient.png" alt="Algebra University">
+          </div>
+          <p>
+            Practical education focused on modern technologies, innovation, and
+            skills required by today's job market.
+          </p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/sveucilistealgebrabernays/" class="social-icon" target="_blank">
+              <img src="../img/fb-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/algebrabernaysuniversity/" class="social-icon" target="_blank">
+              <img src="../img/ig-icon.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/school/algebra-university/" class="social-icon" target="_blank">
+              <img src="../img/li-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.youtube.com/@SveucilisteAlgebraBernays/" class="social-icon" target="_blank">
+              <img src="../img/yt-icon.png" alt="YouTube">
+            </a>
+            <a href="https://www.tiktok.com/@algebrabernaysuniversity?lang=en" class="social-icon" target="_blank">
+              <img src="../img/tt-icon.png" alt="TikTok">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="news.html">Latest News</a></li>
+            <li><a href="curriculum.html">Curriculum</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>📍 Gradišćanska ul. 24, 10000 Zagreb</li>
+            <li>📞 +385 1 2222 182</li>
+            <li>✉️ info@algebra.hr</li>
+            <li>⏰ Mon - Fri: 08:00 - 20:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Algebra University. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
